@@ -14,7 +14,7 @@
                             <li class="breadcrumb-item"><a href="#"><i class="las la-home"></i>Control</a></li>
                             <li class="breadcrumb-item"><a
                                     href="{{ route('clients.index',app()->getLocale())  }}">Clientes</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">editar</li>
+                            <li class="breadcrumb-item active" aria-current="page">Editar</li>
                         </ol>
                     </nav>
                 </div>

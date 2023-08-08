@@ -157,13 +157,20 @@
                                             </li> --}}
                                             <li>
                                                 <a href="{{
+                                                    route('clients.show',
+                                                    ['client'=>$client->id,'language'=>app()->getLocale()] ) }}" class="show">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{
                                                     route('clients.edit',
                                                     ['client'=>$client->id,'language'=>app()->getLocale()] ) }}" class="edit">
                                                     <i class="uil uil-edit"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                               
+
 
                                                 <a href="{{ route('clients.destroy', ['language' => app()->getLocale(), 'client' => $client->id]) }}"
                                                     onclick="event.preventDefault(); document.getElementById('delete-form').submit();"  class="remove">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Enterprise;
+use App\Models\License;
+use App\Models\PaymentMethod;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -18,11 +20,16 @@ class ClientController extends Controller
     protected $description = 'Clientes management';
 
 
+
+
     public function index()
     {
         $title = $this->title;
         $description = $this->description;
         $clients = Client::with(['deliveryZones','enterprise'])->get();
+
+        // Enterprises
+
         // dd($clients);
         return view('clients.index',compact('title','description','clients'));
     }
@@ -36,7 +43,18 @@ class ClientController extends Controller
     {
         $title = $this->title;
         $description = $this->description;
-        return view('clients.create',compact('title','description'));
+        // Obtencion de infos
+        $enterprises = Enterprise::all();
+        $payment_methods = PaymentMethod::all();
+        $licences = License::all();
+        // codigos postales
+        $codigos_postales_json = file_get_contents(public_path('data/codigos_postales.json'));
+
+        $codigos_postales = json_decode($codigos_postales_json, true);
+        // return $codigos_postales;
+
+
+        return view('clients.create',compact('title','description','enterprises','payment_methods','licences','codigos_postales'));
     }
 
     /**
@@ -62,9 +80,13 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($language,$id)
     {
-        //
+        $title = $this->title;
+        $description = $this->description;
+        $client = Client::with(['deliveryZones','enterprise','taxAddress','contacts'])->find($id);
+        // dd($client);
+        return view('clients.show',compact('title','description','client'));
     }
 
     /**

@@ -7,11 +7,18 @@ use Illuminate\Http\Request;
 
 class EnterpriseController extends Controller
 {
+        // Parametros Por default
+        protected $title = 'Clientes';
+        protected $description = 'Clientes management';
+
     public function index()
     {
+        $title = $this->title;
+        $description = $this->description;
         $enterprises = Enterprise::all();
+        // dd($enterprises);
 
-        return view('enterprises.index', compact('enterprises'));
+        return view('enterprises.index', compact('title','description','enterprises'));
     }
 
     public function create()
