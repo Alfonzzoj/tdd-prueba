@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('clave');
             $table->string('nombre_etiqueta');
             $table->integer('ancho');
-            $table->integer('alto');
+            $table->integer('largo');
             $table->string('image_path')->nullable();
             $table->boolean('tallas');
             $table->enum('estado', ['activo', 'inactivo', 'descontinuado']);

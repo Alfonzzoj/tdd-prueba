@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\License;
-use App\Models\Licences;
 use Illuminate\Http\Request;
 
-class LicencesController extends Controller
+class LicenseController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    protected $title = 'Metodos de pago';
-    protected $description = 'Metodos de pago management';
+    protected $title = 'Licencias';
+    protected $description = 'Licencias management';
 
 
     public function index()
@@ -56,7 +55,7 @@ class LicencesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($language,$id)
     {
         //
     }
@@ -93,5 +92,13 @@ class LicencesController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function items($language,License $license){
+        $title = $this->title;
+        $description = $this->description;
+        // $license = License::with(['items'])->find($license->id);
+        $license = [];
+        // dd($license);
+        return view('licences.items',compact('title','description','license'));
     }
 }

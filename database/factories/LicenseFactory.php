@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\License>
  */
-class LicenceFactory extends Factory
+class LicenseFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,6 +18,8 @@ class LicenceFactory extends Factory
     {
         return [
             'nombre' => $this->faker->name(),
+            'logo' => $this->faker->imageUrl(),
+            'estado' => $this->faker->randomElement(['activo', 'inactivo', 'descontinuado']),
         ];
     }
 }

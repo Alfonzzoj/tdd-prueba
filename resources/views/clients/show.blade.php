@@ -505,25 +505,28 @@
                                                     id="condicion_pago" placeholder="Ingrese la condicion de pago">
                                             </div>
                                         </div>
-                                                                    {{-- Vendedor --}}
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="Vendedor" class="il-gray fs-14 fw-500 align-center mb-10">Vendedor</label>
-                                    {{-- <input type="text" name="empresa" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                        id="empresa" placeholder="55 0000 0000" required> --}}
-                                         <div class="dm-select-list d-flex">
-                                            <div class="dm-select ">
-                                                <select  name="vendedor" id="se" class="form-control  select-search">
-                                                    <option value="Maria">Maria</option>
-                                                    <option value="Juan">Juan</option>
-                                                    <option value="Ana">Ana</option>
-                                                    <option value="Pedro">Pedro</option>
-                                                    <option value="Laura">Laura</option>
-                                                </select>
+                                        {{-- Vendedor --}}
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="Vendedor"
+                                                    class="il-gray fs-14 fw-500 align-center mb-10">Vendedor</label>
+                                                {{-- <input type="text" name="empresa"
+                                                    class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                    id="empresa" placeholder="55 0000 0000" required> --}}
+                                                <div class="dm-select-list d-flex">
+                                                    <div class="dm-select ">
+                                                        <select name="vendedor" id="se"
+                                                            class="form-control  select-search">
+                                                            <option value="Maria">Maria</option>
+                                                            <option value="Juan">Juan</option>
+                                                            <option value="Ana">Ana</option>
+                                                            <option value="Pedro">Pedro</option>
+                                                            <option value="Laura">Laura</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                </div>
-                            </div>
 
 
 
@@ -672,19 +675,19 @@
                                                         <td>TE23-1244</td>
                                                         <td>TEJIDA 1</td>
                                                         <td>Etiqueta 1</td>
-                                                        <td>  </td>
+                                                        <td> </td>
                                                     </tr>
                                                     <tr>
                                                         <td>TE23-2134</td>
                                                         <td>TEJIDA 2</td>
                                                         <td>Etiqueta 2</td>
-                                                        <td>  </td>
+                                                        <td> </td>
                                                     </tr>
                                                     <tr>
                                                         <td>TE23-2135</td>
                                                         <td>TEJIDA 3</td>
                                                         <td>Etiqueta 3</td>
-                                                        <td>  </td>
+                                                        <td> </td>
                                                     </tr>
                                                 </tbody>
                                             </table>

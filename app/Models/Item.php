@@ -15,7 +15,7 @@ class Item extends Model
         'clave',
         'nombre_etiqueta',
         'ancho',
-        'alto',
+        'largo',
         'image_path',
         'tallas',
         'estado',

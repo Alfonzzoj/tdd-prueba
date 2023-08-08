@@ -12,5 +12,11 @@ class License extends Model
     use HasFactory;
     protected $fillable = [
         'nombre',
+        'logo',
+        'estado'
     ];
+
+    public function items(){
+        return $this->hasMany(Item::class);
+    }
 }

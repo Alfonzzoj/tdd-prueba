@@ -548,48 +548,64 @@
                                         <thead class="thead-primary">
                                             <tr>
                                                 <th scope="col">Nombre</th>
+                                                <th scope="col">Apellido</th>
                                                 <th scope="col">Puesto</th>
+                                                <th scope="col">Correo</th>
                                                 <th scope="col">Telefono</th>
-                                                <th scope="col">Dias de entrega </th>
-                                                <th scope="col">Horario de Entrega</th>
+                                                <th scope="col">Extension</th>
+                                                <th scope="col">Celular</th>
+                                                {{-- <th scope="col">Dias de entrega </th>
+                                                <th scope="col">Horario de Entrega</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>John Doe</td>
-                                                <td>Gerente de Ventas</td>
-                                                <td>555-1234</td>
-                                                <td>Lunes a Viernes</td>
-                                                <td>9:00 AM - 6:00 PM</td>
+                                                <td>Nombre 1</td>
+                                                <td>Apellido 1</td>
+                                                <td>Puesto 1</td>
+                                                <td>Correo 1</td>
+                                                <td>Telefono 1</td>
+                                                <td>Extension 1</td>
+                                                <td>Celular 1</td>
+                                                {{-- <td>Lunes, Martes, Miercoles</td>
+                                                <td>9:00 AM - 6:00 PM</td> --}}
                                             </tr>
                                             <tr>
-                                                <td>Jane Smith</td>
-                                                <td>Asistente Administrativo</td>
-                                                <td>555-5678</td>
-                                                <td>Lunes a Sábado</td>
-                                                <td>8:00 AM - 5:00 PM</td>
+                                                <td>Nombre 2</td>
+                                                <td>Apellido 2</td>
+                                                <td>Puesto 2</td>
+                                                <td>Correo 2</td>
+                                                <td>Telefono 2</td>
+                                                <td>Extension 2</td>
+                                                <td>Celular 2</td>
+                                                {{-- <td>Lunes, Martes, Miercoles</td>
+                                                <td>9:00 AM - 6:00 PM</td> --}}
                                             </tr>
                                             <tr>
-                                                <td>Carlos Ramirez</td>
-                                                <td>Supervisor de Producción</td>
-                                                <td>555-9012</td>
-                                                <td>Lunes a Viernes</td>
-                                                <td>7:00 AM - 4:00 PM</td>
+                                                <td>Nombre 2</td>
+                                                <td>Apellido 2</td>
+                                                <td>Puesto 2</td>
+                                                <td>Correo 2</td>
+                                                <td>Telefono 2</td>
+                                                <td>Extension 2</td>
+                                                <td>Celular 2</td>
+                                                {{-- <td>Lunes, Martes, Miercoles</td>
+                                                <td>9:00 AM - 6:00 PM</td> --}}
                                             </tr>
                                             <tr>
-                                                <td>Maria Lopez</td>
-                                                <td>Contadora</td>
-                                                <td>555-3456</td>
-                                                <td>Lunes a Jueves</td>
-                                                <td>9:00 AM - 5:30 PM</td>
+                                                <td>Nombre 2</td>
+                                                <td>Apellido 2</td>
+                                                <td>Puesto 2</td>
+                                                <td>Correo 2</td>
+                                                <td>Telefono 2</td>
+                                                <td>Extension 2</td>
+                                                <td>Celular 2</td>
+                                                {{-- <td>Lunes, Martes, Miercoles</td>
+                                                <td>9:00 AM - 6:00 PM</td> --}}
                                             </tr>
-                                            <tr>
-                                                <td>Pedro Martinez</td>
-                                                <td>Repartidor</td>
-                                                <td>555-7890</td>
-                                                <td>Lunes a Sábado</td>
-                                                <td>10:00 AM - 7:00 PM</td>
-                                            </tr>
+                                            <!-- Agrega más filas según sea necesario -->
+
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -611,26 +627,8 @@
 
                             <div class="row mb-4">
 
-                                {{-- licencia --}}
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="licencia"
-                                            class="il-gray fs-14 fw-500 align-center mb-10">Licencia</label>
-                                        {{-- <input type="text" name="licencia"
-                                            class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                            id="licencia" placeholder="Ingrese licencia"> --}}
-                                        <div class="dm-select ">
-                                            <select name="licences[]" id="licences" class="form-control select-multiple"
-                                                multiple="multiple" size="7">
-                                                @foreach($licences as $license)
-                                                <option value="{{ $license }}">{{ $license->nombre }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
                                 {{-- Forma de pago --}}
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="forma_pago" class="il-gray fs-14 fw-500 align-center mb-10">Forma de
                                             pago </label>
@@ -648,13 +646,117 @@
                                     </div>
                                 </div>
                                 {{-- Condiciones de Pago --}}
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="condicion_pago"
                                             class="il-gray fs-14 fw-500 align-center mb-10">Condicion de pago</label>
                                         <input type="text" name="condicion_pago"
                                             class="form-control ih-medium ip-light radius-xs b-light px-15"
                                             id="condicion_pago" placeholder="Ingrese la condicion de pago">
+                                    </div>
+                                </div>
+                                {{-- Dias pago --}}
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="dias_de_pago" class="il-gray fs-14 fw-500 align-center mb-10">Dias
+                                            de pago</label>
+                                        <input type="number" min="0" max="100"
+                                            class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                            id="dias_de_pago" placeholder="0-100 ">
+                                    </div>
+                                </div>
+                                {{-- Dias credito --}}
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="dias_de_credito"
+                                            class="il-gray fs-14 fw-500 align-center mb-10">Dias de credito</label>
+                                        <input type="number" min="0" max="100"
+                                            class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                            id="dias_de_credito" placeholder="0-100 ">
+                                    </div>
+                                </div>
+                                {{-- monto credito --}}
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="monto_de_credito"
+                                            class="il-gray fs-14 fw-500 align-center mb-10">Monto de credito</label>
+                                        <input type="number" min="0" max="100"
+                                            class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                            id="monto_de_credito" placeholder="0-100 ">
+                                    </div>
+                                </div>
+                                {{-- Anticipo --}}
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="anticipo"
+                                            class="il-gray fs-14 fw-500 align-center mb-10">Anticipo</label>
+                                        <div class="dm-select ">
+                                            <select name="anticipo" id="anticipo"
+                                                class="form-control ih-medium ip-light radius-xs b-light px-15">
+                                                <option value="01">No</option>
+                                                <option value="02">Si</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- % Anticipo --}}
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="monto_de_credito"
+                                            class="il-gray fs-14 fw-500 align-center mb-10">% anticipo</label>
+                                        <input type="number" min="0" max="100"
+                                            class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                            id="monto_de_credito" placeholder="0-100 ">
+                                    </div>
+                                </div>
+
+                                {{--  Contraentrega --}}
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="monto_de_credito"
+                                            class="il-gray fs-14 fw-500 align-center mb-10">Contraentrega</label>
+                                        <input type="number" min="0" max="100"
+                                            class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                            id="monto_de_credito" placeholder="0-100 ">
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- ends: Informacion de pago .card -->
+
+                {{-- Informacion de entrega --}}
+                <div class="col-lg-6">
+                    <div class="card card-default card-md mb-4">
+                        <div class="card-header">
+                            <h6>Informacion de entrega </h6>
+                        </div>
+                        <div class="card-body py-md-25">
+
+                            <div class="row">
+
+                                {{-- licencia --}}
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="licencia"
+                                            class="il-gray fs-14 fw-500 align-center mb-10">Licencia</label>
+                                        {{-- <input type="text" name="licencia"
+                                            class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                            id="licencia" placeholder="Ingrese licencia"> --}}
+                                        <div class="dm-select ">
+                                            <select name="licences[]" id="licences" class="form-control select-multiple"
+                                                multiple="multiple" size="7">
+                                                @foreach($licences as $license)
+                                                <option value="{{ $license }}">{{ $license->nombre }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 {{-- Vendedor --}}
@@ -677,30 +779,12 @@
                                     </div>
                                 </div>
 
-
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- ends: Informacion de pago .card -->
-
-                {{-- Informacion de entrega --}}
-                <div class="col-lg-6">
-                    <div class="card card-default card-md mb-4">
-                        <div class="card-header">
-                            <h6>Informacion de entrega </h6>
-                        </div>
-                        <div class="card-body py-md-25">
-
-                            <div class="row">
                                 {{-- Tolerancia de entrega --}}
                                 <div class="col-md-12">
                                     <h6 class="mb-2">Tolerancia de entrega </h6>
                                 </div>
                                 {{-- % Minimo --}}
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="tolerancia_minima" class="il-gray fs-14 fw-500 align-center mb-10">%
                                             Minimo</label>
@@ -710,7 +794,7 @@
                                     </div>
                                 </div>
                                 {{-- % Maxima --}}
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="tolerancia_maxima" class="il-gray fs-14 fw-500 align-center mb-10">%
                                             Maxima</label>

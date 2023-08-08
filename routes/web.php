@@ -6,7 +6,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EnterpriseController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LanguageController;
-use App\Http\Controllers\LicencesController;
+use App\Http\Controllers\LicenseController;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\ZipCodeController;
@@ -63,7 +63,8 @@ Route::group(['prefix'=>'{language}'],function(){
     Route::resource('payment_methods', PaymentMethodController::class);
 
     // ==> Licencias / Licences
-    Route::resource('licences', LicencesController::class);
+    Route::resource('licences', LicenseController::class);
+    Route::get('licences/items/{license}',[LicenseController::class,'items'])->name('licences.items');
 
 
     // Route::get('items/{tipo?}', ItemController::class)->name('items.index');

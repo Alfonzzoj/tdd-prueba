@@ -29,7 +29,8 @@
 
         {{-- USUARIOS --}}
         <li>
-            <a href="{{ route('user.table',app()->getLocale()) }}"  class="{{ Request::is(app()->getLocale().'/applications/user/*') ? 'active':'' }}">
+            <a href="{{ route('user.table',app()->getLocale()) }}"
+                class="{{ Request::is(app()->getLocale().'/applications/user/*') ? 'active':'' }}">
                 <span class="nav-icon uil uil-users-alt"></span>
                 <span class="menu-text">{{ trans('menu.user-menu-title') }}</span>
                 {{-- <span class="toggle-icon"></span> --}}
@@ -38,7 +39,8 @@
         </li>
         {{-- Roles --}}
         <li>
-            <a href="{{ route('user.table',app()->getLocale()) }}"  class="{{ Request::is(app()->getLocale().'/applications/user/*') ? 'active':'' }}">
+            <a href="{{ route('user.table',app()->getLocale()) }}"
+                class="{{ Request::is(app()->getLocale().'/applications/user/*') ? 'active':'' }}">
                 <span class="nav-icon uil uil-users-alt"></span>
                 <span class="menu-text">Roles</span>
                 {{-- <span class="toggle-icon"></span> --}}
@@ -55,16 +57,28 @@
                 <span class="toggle-icon"></span>
             </a>
             <ul>
-                <li class="{{ Request::is(app()->getLocale().'/items/tejidas'  ) ||Request::is(app()->getLocale().'/items/*'  ) ? 'active':'' }}">
-                    <a href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Tejidas']) }}">Tejidas</a></li>
-                <li class="{{ Request::is(app()->getLocale().'/items/estampadas') ||Request::is(app()->getLocale().'/items/*') ? 'active':'' }}">
-                    <a href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Estampadas']) }}">Estampadas</a></li>
-                <li class="{{ Request::is(app()->getLocale().'/items/transfers') ||Request::is(app()->getLocale().'/items/*') ? 'active':'' }}">
-                    <a href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Transfers']) }}">Transfers</a></li>
-                <li class="{{ Request::is(app()->getLocale().'/items/impresas') ||Request::is(app()->getLocale().'/items/*') ? 'active':'' }}">
-                    <a href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Impresas']) }}">Impresas</a></li>
-                <li class="{{ Request::is(app()->getLocale().'/items/impresos')||Request::is(app()->getLocale().'/items/*')  ? 'active':'' }}">
-                    <a href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Impresos']) }}">Impresos</a></li>
+                <li class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Tejidas'  ? 'active' :'' }}">
+                    <a href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Tejidas']) }}">
+                    Tejidas
+                    </a>
+                </li>
+
+                <li class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Estampadas'  ? 'active':'' }}">
+                    <a
+                        href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Estampadas']) }}">Estampadas</a>
+                </li>
+                <li class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Transfers'  ? 'active':'' }}">
+                    <a
+                        href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Transfers']) }}">Transfers</a>
+                </li>
+                <li class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Impresas'  ? 'active':'' }}">
+                    <a href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Impresas']) }}">Hang
+                        tag</a>
+                </li>
+                <li class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Impresos'   ? 'active':'' }}">
+                    <a
+                        href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Impresos']) }}">Impresos</a>
+                </li>
 
             </ul>
         </li>
@@ -74,7 +88,8 @@
 
         {{-- Unidades --}}
         <li>
-            <a href="{{ route('enterprises.index',app()->getLocale()) }}"  class="{{ Request::is(app()->getLocale().'/enterprises/*') ? 'active':'' }}">
+            <a href="{{ route('enterprises.index',app()->getLocale()) }}"
+                class="{{ Request::is(app()->getLocale().'/enterprises/*') ? 'active':'' }}">
                 <span class="nav-icon uil uil-users-alt"></span>
                 <span class="menu-text">Empresas</span>
                 {{-- <span class="toggle-icon"></span> --}}
@@ -84,7 +99,8 @@
 
         {{-- Metodos de pago --}}
         <li>
-            <a href="{{ route('payment_methods.index',app()->getLocale()) }}"  class="{{ Request::is(app()->getLocale().'/applications/payment_method/*') ? 'active':'' }}">
+            <a href="{{ route('payment_methods.index',app()->getLocale()) }}"
+                class="{{ Request::is(app()->getLocale().'/applications/payment_method/*') ? 'active':'' }}">
                 <span class="nav-icon uil uil-users-alt"></span>
                 <span class="menu-text">Metodos de pago</span>
                 {{-- <span class="toggle-icon"></span> --}}
@@ -93,7 +109,8 @@
         </li>
         {{-- Calibres --}}
         <li>
-            <a href="{{ route('licences.index',app()->getLocale()) }}"  class="{{ Request::is(app()->getLocale().'/applications/licences/*') ? 'active':'' }}">
+            <a href="{{ route('licences.index',app()->getLocale()) }}"
+                class="{{ Request::is(app()->getLocale().'/applications/licences/*') ? 'active':'' }}">
                 <span class="nav-icon uil uil-users-alt"></span>
                 <span class="menu-text">Licencias</span>
                 {{-- <span class="toggle-icon"></span> --}}
@@ -102,7 +119,8 @@
         </li>
         {{-- Zona entregas --}}
         {{-- <li>
-            <a href="{{ route('user.table',app()->getLocale()) }}"  class="{{ Request::is(app()->getLocale().'/applications/user/*') ? 'active':'' }}">
+            <a href="{{ route('user.table',app()->getLocale()) }}"
+                class="{{ Request::is(app()->getLocale().'/applications/user/*') ? 'active':'' }}">
                 <span class="nav-icon uil uil-users-alt"></span>
                 <span class="menu-text">Zona entregas</span>
             </a>

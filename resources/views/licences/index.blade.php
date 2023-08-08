@@ -103,6 +103,12 @@
                                     <th>
                                         <span class="userDatatable-title">Razon Social</span>
                                     </th>
+                                    <th>
+                                        <span class="userDatatable-title">Logo</span>
+                                    </th>
+                                    <th>
+                                        <span class="userDatatable-title">Estado</span>
+                                    </th>
 
 
                                     <th class="actions">
@@ -117,9 +123,27 @@
                                     <td>
                                         <div class="d-flex">
                                             <div class="userDatatable-inline-title">
-                                                <a href="#" class="text-dark fw-500">
                                                     <h6>{{ $license->nombre }}</h6>
-                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="userDatatable-content--priority">
+                                        <a href="{{ $license->logo }}" target="_blank">
+                                            <img src="{{ $license->logo }}" alt="Imagen" width="100" height="100">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <div class="userDatatable-inline-title">
+                                                @if ($license->estado == "inactivo")
+                                                    @include('partials.ui_elements.pills.danger', ['contenido' => 'Inactivo'])
+                                                @elseif($license->estado == "activo")
+                                                    @include('partials.ui_elements.pills.success', ['contenido' => 'Activo'])
+                                                @else
+                                                    @include('partials.ui_elements.pills.warning', ['contenido' => 'Pendiente'])
+
+                                                @endif
+
                                             </div>
                                         </div>
                                     </td>
@@ -127,40 +151,20 @@
 
                                     <td>
                                         <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                                            {{-- <li>
+                                            <li>
+                                                <a href="{{
+                                                    route('licences.items',
+                                                    ['license'=>$license->id,'language'=>app()->getLocale()] ) }}" class="edit"
+                                                    title="Items de licencia">
+                                                    <i class="fas fa-tags"></i>
+                                                </a>
+                                            </li>
+                                            <li>
                                                 <a href="#" class="view">
                                                     <i class="uil uil-setting"></i>
                                                 </a>
-                                            </li> --}}
-                                            <li>
-                                                <a href="{{
-                                                    route('licences.show',
-                                                    ['license'=>$license->id,'language'=>app()->getLocale()] ) }}" class="show">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
                                             </li>
-                                            <li>
-                                                <a href="{{
-                                                    route('licences.edit',
-                                                    ['license'=>$license->id,'language'=>app()->getLocale()] ) }}" class="edit">
-                                                    <i class="uil uil-edit"></i>
-                                                </a>
-                                            </li>
-                                            <li>
 
-
-                                                <a href="{{ route('licences.destroy', ['language' => app()->getLocale(), 'license' => $license->id]) }}"
-                                                    onclick="event.preventDefault(); document.getElementById('delete-form').submit();"  class="remove">
-                                                    <i class="uil uil-trash-alt"></i>
-
-                                                 </a>
-
-                                                 <form id="delete-form" action="{{ route('licences.destroy', ['language' => app()->getLocale(), 'license' => $license->id]) }}"
-                                                       method="POST" style="display: none;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                 </form>
-                                            </li>
                                         </ul>
                                     </td>
                                 </tr>

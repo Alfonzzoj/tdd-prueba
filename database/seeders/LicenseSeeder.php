@@ -3,11 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\License;
-use Database\Factories\LicenceFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class LicencesSeeder extends Seeder
+class LicenseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,6 +15,6 @@ class LicencesSeeder extends Seeder
      */
     public function run()
     {
-        LicenceFactory::factory(5)->create();
+        License::factory()->count(10)->create();
     }
 }

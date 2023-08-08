@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('licences', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            $table->string('logo')->nullable();
-            $table->enum('estado', ['activo', 'inactivo', 'descontinuado'])->default('inactivo');
+        Schema::create('item_license', function (Blueprint $table) {
+            $table->unsignedBigInteger('item_id');
+            $table->unsignedBigInteger('license_id');
             $table->timestamps();
+
+            $table->foreign('item_id')->references('id')->on('items');
+            $table->foreign('license_id')->references('id')->on('licences');
+
+            $table->primary(['item_id', 'license_id']);
         });
     }
 
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('License');
+        Schema::dropIfExists('item_license');
     }
 };

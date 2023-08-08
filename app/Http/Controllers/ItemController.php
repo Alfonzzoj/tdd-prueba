@@ -29,7 +29,7 @@ class ItemController extends Controller
                     $items = Item::Estampadas()->get();
                     break;
                 case 'Transfers':
-                    $items = Item::Transfer()->get();
+                    $items = Item::Transfers()->get();
                     break;
                 case 'Impresas':
                     $items = Item::Impresas()->get();
@@ -47,7 +47,7 @@ class ItemController extends Controller
             // El parámetro no está presente en la URL
             // Realizar otras acciones
         }
-        return view('items.index', compact('title', 'description', 'items'));
+        return view('items.index', compact('title', 'description', 'items','tipo'));
     }
 
     /**
@@ -55,11 +55,12 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($language,Request $request)
     {
+        $tipo = $request->input('tipo');
         $title = $this->title;
         $description = $this->description;
-        return view('items.create', compact('title', 'description'));
+        return view('items.create', compact('title', 'description','tipo'));
     }
 
     /**

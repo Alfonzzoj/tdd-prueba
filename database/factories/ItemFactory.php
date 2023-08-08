@@ -23,7 +23,7 @@ class ItemFactory extends Factory
             'clave' => $faker->word,
             'nombre_etiqueta' => $faker->word,
             'ancho' => $faker->numberBetween(1, 100),
-            'alto' => $faker->numberBetween(1, 100),
+            'largo' => $faker->numberBetween(1, 100),
             'image_path' => $faker->imageUrl(),
             'tallas' => $faker->boolean,
             'estado' => $faker->randomElement(['activo', 'inactivo', 'descontinuado']),
