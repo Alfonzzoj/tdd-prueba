@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use App\Models\Item;
 use Illuminate\Http\Request;
 
@@ -85,12 +86,13 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($language,$item)
     {
         $title = $this->title;
         $description = $this->description;
-        $item = Item::find($id);
-        return view('items.show', compact('title', 'description', 'item'));
+        $item = Item::find($item);
+        $client = Client::find(1);
+        return view('items.show', compact('title', 'description', 'item','client'));
     }
 
     /**

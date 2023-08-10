@@ -625,6 +625,18 @@
 
                     </div>
                 </div>
+                {{-- PDF --}}
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="pdf" class="il-gray fs-14 fw-500 align-center mb-10">PDF Editable</label>
+
+                        <div class="custom-file">
+                            <input class="form-control custom-file-input" type="file" id="pdf" name="pdf">
+                            <label class="custom-file-label ps-15" for="pdf">Cargar archivo</label>
+                        </div>
+
+                    </div>
+                </div>
 
 
 

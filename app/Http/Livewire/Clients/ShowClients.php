@@ -12,7 +12,7 @@ class ShowClients extends Component
 
     public function mount()
     {
-        $this->clients = Client::all();
+        $this->clients = Client::with(['deliveryZones','enterprise'])->get();
     }
 
     public function render()

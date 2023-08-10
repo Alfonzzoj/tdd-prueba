@@ -93,7 +93,7 @@
                                     <div class="form-group">
                                         <label for="calle" class="il-gray fs-14 fw-500 align-center mb-10">Calle</label>
                                         <input readonly type="text" name="calle" class="form-control ih-medium ip-light radius-xs b-light px-15" id="calle" placeholder="Ingrese la calle" required
-                                        value="{{ $client->taxAddress->calle }}">
+                                        value="{{ $client->taxAddress->calle??'' }}">
 
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@
                                         <label for="no_externo" class="il-gray fs-14 fw-500 align-center mb-10">No
                                             externo</label>
                                         <input readonly type="text" name="no_externo" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                            id="no_externo" placeholder="Ingrese no externo" required value="{{ $client->taxAddress->numero_externo }}">
+                                            id="no_externo" placeholder="Ingrese no externo" required value="{{ $client->taxAddress->numero_externo??'' }}">
                                     </div>
                                 </div>
                                 {{-- No interno --}}
@@ -111,7 +111,7 @@
                                     <div class="form-group">
                                         <label for="no_interno" class="il-gray fs-14 fw-500 align-center mb-10">No
                                             interno</label>
-                                        <input readonly type="text" name="no_interno" class="form-control ih-medium ip-light radius-xs b-light px-15" id="no_interno" placeholder="Ingrese no interno" required value="{{ $client->taxAddress->numero_interno }}">
+                                        <input readonly type="text" name="no_interno" class="form-control ih-medium ip-light radius-xs b-light px-15" id="no_interno" placeholder="Ingrese no interno" required value="{{ $client->taxAddress->numero_interno??'' }}">
                                     </div>
                                 </div>
                                 {{-- Codigo postal --}}
@@ -120,7 +120,7 @@
                                         <label for="codigo_postal" class="il-gray fs-14 fw-500 align-center mb-10">Codigo
                                             postal</label>
                                         <input readonly type="text" name="codigo_postal" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                            id="codigo_postal" placeholder="Ingrese codigo postal" required value="{{ $client->taxAddress->codigo_postal }}">
+                                            id="codigo_postal" placeholder="Ingrese codigo postal" required value="{{ $client->taxAddress->codigo_postal??'' }}">
                                     </div>
                                 </div>
 
@@ -129,7 +129,7 @@
                                     <div class="form-group">
                                         <label for="colonia" class="il-gray fs-14 fw-500 align-center mb-10">Colonia</label>
                                         <input readonly type="text" name="colonia" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                            id="colonia" placeholder="Ingrese la colonia" required value="{{ $client->taxAddress->colonia }}">
+                                            id="colonia" placeholder="Ingrese la colonia" required value="{{ $client->taxAddress->colonia??'' }}">
                                     </div>
                                 </div>
                                 {{-- Delegacion --}}
@@ -138,7 +138,7 @@
                                         <label for="delegacion"
                                             class="il-gray fs-14 fw-500 align-center mb-10">Delegación</label>
                                         <input readonly type="text" name="delegacion" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                            id="delegacion" placeholder="Ingrese la delegación" required value="{{ $client->taxAddress->delegacion }}">
+                                            id="delegacion" placeholder="Ingrese la delegación" required value="{{ $client->taxAddress->delegacion??'' }}">
                                     </div>
                                 </div>
                                 {{-- Estado --}}
@@ -146,7 +146,7 @@
                                     <div class="form-group">
                                         <label for="estado" class="il-gray fs-14 fw-500 align-center mb-10">Estado</label>
                                         <input readonly type="text" name="estado" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                            id="estado" placeholder="Ingrese el estado" required value="{{ $client->taxAddress->estado }}">
+                                            id="estado" placeholder="Ingrese el estado" required value="{{ $client->taxAddress->estado ??''}}">
                                     </div>
                                 </div>
                                 {{-- Pais --}}
@@ -154,7 +154,7 @@
                                     <div class="form-group">
                                         <label for="pais" class="il-gray fs-14 fw-500 align-center mb-10">País</label>
                                         <input readonly type="text" name="pais_dominio_fiscal" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                            id="pais" placeholder="Ingrese el país" value="{{ $client->taxAddress->pais }}">
+                                            id="pais" placeholder="Ingrese el país" value="{{ $client->taxAddress->pais??'' }}">
                                     </div>
                                 </div>
 
@@ -181,7 +181,7 @@
                                     <label for="nombre_direccion" class="il-gray fs-14 fw-500 align-center mb-10">Nombre
                                         direccion</label>
                                     <input readonly type="text" name="nombre_direccion" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                        id="nombre_direccion" placeholder="Ingrese la direccion" value="{{ $client->deliveryZones[0]->nombre_direccion }}">
+                                        id="nombre_direccion" placeholder="Ingrese la direccion" value="{{ $client->deliveryZones[0]->nombre_direccion??'' }}">
                                 </div>
                             </div>
 
@@ -191,7 +191,7 @@
                                     <label for="zona_entrega" class="il-gray fs-14 fw-500 align-center mb-10">Zona
                                         entrega</label>
                                     <input readonly type="text" name="zona_entrega" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                        id="zona_entrega" placeholder="Ingrese zona de entrega" value="{{ $client->deliveryZones[0]->zona_entrega }}"">
+                                        id="zona_entrega" placeholder="Ingrese zona de entrega" value="{{ $client->deliveryZones[0]->zona_entrega ??''}}"">
                                 </div>
                             </div>
 
@@ -200,7 +200,7 @@
                                 <div class="form-group">
                                     <label for="calle_zona_entrega" class="il-gray fs-14 fw-500 align-center mb-10">Calle</label>
                                     <input readonly type="text" name="calle_zona_entrega" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                        id="calle_zona_entrega" placeholder="Ingrese la calle" value="{{ $client->deliveryZones[0]->calle }}">
+                                        id="calle_zona_entrega" placeholder="Ingrese la calle" value="{{ $client->deliveryZones[0]->calle??'' }}">
                                 </div>
                             </div>
 
@@ -210,7 +210,7 @@
                                     <label for="no_externo_zona_entrega" class="il-gray fs-14 fw-500 align-center mb-10">No
                                         externo</label>
                                     <input readonly type="text" name="no_externo_zona_entrega" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                        id="no_externo_zona_entrega" placeholder="Ingrese no externo" value="{{ $client->deliveryZones[0]->numero_externo }}"">
+                                        id="no_externo_zona_entrega" placeholder="Ingrese no externo" value="{{ $client->deliveryZones[0]->numero_externo??'' }}"">
                                 </div>
                             </div>
                             {{-- No interno ze--}}
@@ -219,7 +219,7 @@
                                     <label for="no_interno_zona_entrega" class="il-gray fs-14 fw-500 align-center mb-10">No
                                         interno</label>
                                     <input readonly type="text" name="no_interno_zona_entrega" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                        id="no_interno_zona_entrega" placeholder="Ingrese no interno" value="{{ $client->deliveryZones[0]->numero_interno }}">
+                                        id="no_interno_zona_entrega" placeholder="Ingrese no interno" value="{{ $client->deliveryZones[0]->numero_interno ??''}}">
                                 </div>
                             </div>
                             {{-- Codigo postal ze --}}
@@ -228,7 +228,7 @@
                                     <label for="codigo_postal_zona_entrega" class="il-gray fs-14 fw-500 align-center mb-10">Codigo
                                         postal</label>
                                     <input readonly type="text" name="codigo_postal_zona_entrega" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                        id="codigo_postal_zona_entrega" placeholder="Ingrese codigo postal" value="{{ $client->deliveryZones[0]->codigo_postal }}">
+                                        id="codigo_postal_zona_entrega" placeholder="Ingrese codigo postal" value="{{ $client->deliveryZones[0]->codigo_postal ??''}}">
                                 </div>
                             </div>
                             {{-- Colonia ze --}}
@@ -236,7 +236,7 @@
                                 <div class="form-group">
                                     <label for="colonia_zona_entrega" class="il-gray fs-14 fw-500 align-center mb-10">Colonia</label>
                                     <input readonly type="text" name="colonia_zona_entrega" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                        id="colonia_zona_entrega" placeholder="Ingrese la colonia" value="{{ $client->deliveryZones[0]->colonia }}">
+                                        id="colonia_zona_entrega" placeholder="Ingrese la colonia" value="{{ $client->deliveryZones[0]->colonia??'' }}">
                                 </div>
                             </div>
                             {{-- Delegacion zona entrega --}}
@@ -245,7 +245,7 @@
                                     <label for="delegacion_zona_entrega"
                                         class="il-gray fs-14 fw-500 align-center mb-10">Delegación</label>
                                     <input readonly type="text" name="delegacion_zona_entrega" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                        id="delegacion_zona_entrega" placeholder="Ingrese la delegación" value="{{ $client->deliveryZones[0]->delegacion }}">
+                                        id="delegacion_zona_entrega" placeholder="Ingrese la delegación" value="{{ $client->deliveryZones[0]->delegacion ??''}}">
                                 </div>
                             </div>
                             {{-- Estado zona entrega --}}
@@ -253,7 +253,7 @@
                                 <div class="form-group">
                                     <label for="estado_zona_entrega" class="il-gray fs-14 fw-500 align-center mb-10">Estado</label>
                                     <input readonly type="text" name="estado_zona_entrega" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                        id="estado_zona_entrega" placeholder="Ingrese el estado" value="{{ $client->deliveryZones[0]->estado }}">
+                                        id="estado_zona_entrega" placeholder="Ingrese el estado" value="{{ $client->deliveryZones[0]->estado??'' }}">
                                 </div>
                             </div>
                             {{-- pais zona entrega  --}}
@@ -261,7 +261,7 @@
                                 <div class="form-group">
                                     <label for="pais_zona_entrega" class="il-gray fs-14 fw-500 align-center mb-10">País</label>
                                     <input readonly type="text" name="pais_zona_entrega" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                        id="pais_zona_entrega" placeholder="Ingrese el país" value="{{ $client->deliveryZones[0]->pais }}">
+                                        id="pais_zona_entrega" placeholder="Ingrese el país" value="{{ $client->deliveryZones[0]->pais ??''}}">
                                 </div>
                             </div>
                             {{-- Dias de entrega  zona entrega--}}
@@ -288,7 +288,7 @@
                                         class="il-gray fs-14 fw-500 align-center mb-10">Horario de entrega
                                         (Inicio)</label>
                                     <input readonly type="time" name="horario_entrega_inicio_zona_entrega" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                        id="horario_entrega_inicio_zona_entrega" placeholder="Ingrese el Horario de entrega" value="{{ $client->deliveryZones[0]->horario_entrega }}"">
+                                        id="horario_entrega_inicio_zona_entrega" placeholder="Ingrese el Horario de entrega" value="{{ $client->deliveryZones[0]->horario_entrega ??''}}"">
                                 </div>
                             </div>
                             {{-- Horario de entrega fin zona entrega --}}
@@ -297,7 +297,7 @@
                                     <label for="horario_entrega_fin_zona_entrega"
                                         class="il-gray fs-14 fw-500 align-center mb-10">Horario de entrega (Fin)</label>
                                     <input readonly type="time" name="horario_entrega_fin_zona_entrega" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                        id="horario_entrega_fin_zona_entrega" placeholder="Ingrese el Horario de entrega" value="{{ $client->deliveryZones[0]->horario_entrega }}">
+                                        id="horario_entrega_fin_zona_entrega" placeholder="Ingrese el Horario de entrega" value="{{ $client->deliveryZones[0]->horario_entrega??'' }}">
                                 </div>
                             </div>
 
@@ -324,7 +324,7 @@
                                     <label for="nombre_contacto"
                                         class="il-gray fs-14 fw-500 align-center mb-10">Nombre</label>
                                     <input readonly type="text" name="nombre_contacto" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                        id="nombre_contacto" placeholder="Ingrese nombre del contacto" value="{{ $client->contacts[0]->nombre_direccion }}">
+                                        id="nombre_contacto" placeholder="Ingrese nombre del contacto" value="{{ $client->contacts[0]->nombre_direccion??'' }}">
                                 </div>
                             </div>
                             {{-- Puesto --}}
@@ -333,7 +333,7 @@
                                     <label for="puesto_contacto"
                                         class="il-gray fs-14 fw-500 align-center mb-10">Puesto</label>
                                     <input readonly type="text" name="puesto_contacto" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                        id="puesto_contacto" placeholder="Ingrese puesto del contacto" value="{{ $client->contacts[0]->puesto }}">
+                                        id="puesto_contacto" placeholder="Ingrese puesto del contacto" value="{{ $client->contacts[0]->puesto??'' }}">
                                 </div>
                             </div>
 

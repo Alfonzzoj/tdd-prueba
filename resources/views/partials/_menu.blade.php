@@ -29,8 +29,8 @@
 
         {{-- USUARIOS --}}
         <li>
-            <a href="{{ route('user.table',app()->getLocale()) }}"
-                class="{{ Request::is(app()->getLocale().'/applications/user/*') ? 'active':'' }}">
+            <a href="{{ route('users.index',app()->getLocale()) }}"
+                class="{{ Request::is(app()->getLocale().'/users') ? 'active':'' }}">
                 <span class="nav-icon uil uil-users-alt"></span>
                 <span class="menu-text">{{ trans('menu.user-menu-title') }}</span>
                 {{-- <span class="toggle-icon"></span> --}}

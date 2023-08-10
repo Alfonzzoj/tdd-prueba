@@ -11,6 +11,9 @@ use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\ZipCodeController;
 
+
+use App\Http\Livewire\users\Users;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +46,8 @@ Route::get('zip_codes', [ZipCodeController::class,'index'])->name('zip_codes.ind
 
 
 Route::group(['prefix'=>'{language}'],function(){
+    // ==> Usuarios / Users
+    Route::get('/users', [Users::class, 'render'])->name('users.index');
     // ==> Clientes / Clients
     Route::resource('clients', ClientController::class);
 

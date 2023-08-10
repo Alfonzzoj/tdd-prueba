@@ -18,7 +18,7 @@
                         <span class="userDatatable-title">Nombre etiqueta</span>
                     </th>
                     <th>
-                        <span class="userDatatable-title">Alto</span>
+                        <span class="userDatatable-title">Largo</span>
                     </th>
                     <th>
                         <span class="userDatatable-title">Ancho</span>
@@ -56,7 +56,7 @@
 
                     <td>
                         <div class="userDatatable-content--priority">
-                            {{ $item->alto }}
+                            {{ $item->largo }}
                         </div>
                     </td>
                     <td>

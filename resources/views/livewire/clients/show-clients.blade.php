@@ -30,30 +30,29 @@
                 <tbody>
                     @forelse ($clients as $client)
                     <tr>
-                        <td>{{ $client->id }}</td>
+                        <td >{{ $client->id }}</td>
                         <td>
                             <div class="d-flex">
                                 <div class="userDatatable-inline-title">
                                     <a href="#" class="text-dark fw-500">
-                                        <h6>{{ $client->rfc }}</h6>
+                                        <h6>{{ $client->razon_social }}</h6>
                                     </a>
                                 </div>
                             </div>
                         </td>
 
-                        <td>
-                            <div class="userDatatable-content--subject">
-                                {{ $client->telefono_corporativo }}
+                        <td >
+                            <div>
+                                {{ $client->rfc }}
                             </div>
                         </td>
 
                         <td>
-                            <div class="userDatatable-content--priority">
-                                {{ $client->enterprise_id }}
-                            </div>
+                            <div >
+                                {{ \Illuminate\Support\Str::limit($client->enterprise->direccion, 50)  }} </div>
                         </td>
                         <td>
-                            <div class="userDatatable-content--priority">
+                            <div>
                                 {{ $client->deliveryZone[0]->nombre_direccion??'Mexico' }}
                             </div>
                         </td>

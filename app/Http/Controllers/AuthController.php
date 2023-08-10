@@ -8,7 +8,7 @@ use Auth;
 use App\Models\User;
 
 class AuthController extends Controller {
-    
+
     /**
      * Display login of the resource.
      *
@@ -16,7 +16,7 @@ class AuthController extends Controller {
      */
     public function login(){
         $title = "Login";
-        $description = "Some description for the page";
+        $description = "Bienvenido a Altima";
         return view('auth.login',compact('title','description'));
     }
 
@@ -27,7 +27,7 @@ class AuthController extends Controller {
      */
     public function register(){
         $title = "Register";
-        $description = "Some description for the page";
+        $description = "Bienvenido a Altima";
         return view('auth.register',compact('title','description'));
     }
 
@@ -38,14 +38,14 @@ class AuthController extends Controller {
      */
     public function forgetPassword(){
         $title = "Forget Password";
-        $description = "Some description for the page";
+        $description = "Bienvenido a altima";
         return view('auth.forget_password',compact('title','description'));
     }
 
     /**
      * make the user able to register
      *
-     * @return 
+     * @return
      */
     public function signup(Request $request){
         $validators=Validator::make($request->all(),[
@@ -62,14 +62,14 @@ class AuthController extends Controller {
             $user->password = bcrypt($request->password);
             $user->save();
             auth()->login($user);
-            return redirect()->intended(route('dashboard.demo_one','en'))->with('message','Registration was successfull !');            
+            return redirect()->intended(route('dashboard.demo_one','es'))->with('message','Registro exitoso !');
         }
     }
 
     /**
      * make the user able to login
      *
-     * @return 
+     * @return
      */
     public function authenticate(Request $request){
         $validators=Validator::make($request->all(),[
@@ -80,7 +80,7 @@ class AuthController extends Controller {
             return redirect()->route('login')->withErrors($validators)->withInput();
         }else{
             if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
-                return redirect()->intended(route('dashboard.demo_one','en'))->with('message','Welcome back !');
+                return redirect()->intended(route('dashboard.demo_one','es'))->with('message','Inicio de sesion exitoso !');
             }else{
                 return redirect()->route('login')->with('message','Login failed !Email/Password is incorrect !');
             }
@@ -90,10 +90,10 @@ class AuthController extends Controller {
     /**
      * make the user able to logout
      *
-     * @return 
+     * @return
      */
-    public function logout(){  
-        Auth::logout(); 
-        return redirect()->route('login')->with('message','Successfully Logged out !');       
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('login')->with('message','Successfully Logged out !');
     }
 }

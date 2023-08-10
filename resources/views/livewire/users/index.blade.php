@@ -1,5 +1,5 @@
-@section('title',$title)
-@section('description',$description)
+@section('title',"Usuarios")
+@section('description',"Usuarios")
 @extends('layout.app')
 @section('content')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
@@ -9,19 +9,18 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="breadcrumb-main">
-                <h4 class="text-capitalize breadcrumb-title">Empresas</h4>
+                <h4 class="text-capitalize breadcrumb-title">Usuarios</h4>
                 <div class="breadcrumb-action justify-content-center flex-wrap">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
                                 <a href="#">
-                                    <i class="las la-home"></i>Catalogos
+                                    <i class="las la-home"></i>Control
                                 </a>
                             </li>
-                                                        {{-- TODO: traducir --}}
+                            {{-- TODO: traducir --}}
 
-                            <li class="breadcrumb-item active" aria-current="page">Empresas</li>
-                            {{-- <li class="breadcrumb-item"><a href="#">Apps</a></li> --}}
+                            <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
                         </ol>
                     </nav>
                 </div>
@@ -30,28 +29,26 @@
     </div>
 
     {{-- Main Content --}}
+    {{-- Tejidas --}}
     <div class="row">
         <div class="col-12 mb-30">
             <div class="support-ticket-system support-ticket-system--search">
                 <div class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between ">
                     <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
-                        <div class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
-                            {{-- TODO: traducir --}}
-                            <h4 class="text-capitalize fw-500 breadcrumb-title">Informacion de empresas registrados</h4>
+                        <div
+                            class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
+                            <h4 class="text-capitalize fw-500 breadcrumb-title">Tejida</h4>
                         </div>
                     </div>
                     <div class="action-btn">
-                        <a href="{{ route('enterprises.create',app()->getLocale()) }}" class="btn btn-primary">
-                            Nuevo
-                        </a>
-
-                        {{-- <a href="#" class="btn btn-primary">
+                        <a href="#" class="btn btn-primary">
                             Export
                             <i class="las la-angle-down"></i>
-                        </a> --}}
+                        </a>
                     </div>
                 </div>
-                {{-- <div class="support-form datatable-support-form d-flex justify-content-xxl-between justify-content-center align-items-center flex-wrap">
+                <div
+                    class="support-form datatable-support-form d-flex justify-content-xxl-between justify-content-center align-items-center flex-wrap">
                     <div class="support-form__input">
                         <div class="d-flex flex-wrap">
                             <div class="support-form__input-id">
@@ -85,32 +82,34 @@
                         <div class="support-order-search">
                             <form action="/" class="support-order-search__form">
                                 <img src="{{ asset('assets/img/svg/search.svg') }}" alt="search" class="svg">
-                                <input class="form-control border-0 box-shadow-none" type="search" placeholder="Search" aria-label="Search">
+                                <input class="form-control border-0 box-shadow-none" type="search" placeholder="Search"
+                                    aria-label="Search">
                             </form>
                         </div>
                     </div>
-                </div> --}}
+                </div>
                 <div class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1">
                     <div class="table-responsive">
-                        <table id="myTable" class="table mb-0 table-borderless">
+                        <table class="table mb-0 table-borderless">
                             <thead>
-                                {{-- TODO: traducir --}}
-
                                 <tr class="userDatatable-header">
                                     <th>
                                         <span class="userDatatable-title">ID</span>
                                     </th>
                                     <th>
-                                        <span class="userDatatable-title">Razon Social</span>
+                                        <span class="userDatatable-title">Imagen</span>
                                     </th>
                                     <th>
-                                        <span class="userDatatable-title">RFC</span>
+                                        <span class="userDatatable-title">Tipo</span>
                                     </th>
                                     <th>
-                                        <span class="userDatatable-title">Dirección</span>
+                                        <span class="userDatatable-title">Nombre de etiqueta</span>
                                     </th>
                                     <th>
-                                        <span class="userDatatable-title">Zona de entrega</span>
+                                        <span class="userDatatable-title">Largo</span>
+                                    </th>
+                                    <th>
+                                        <span class="userDatatable-title">Ancho</span>
                                     </th>
 
                                     <th class="actions">
@@ -119,14 +118,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($enterprises as $enterprise)
                                 <tr>
-                                    <td>{{ $enterprise->id }}</td>
+                                    <td>1</td>
+                                    <td class="userDatatable-content--priority">
+                                        <a href="https://via.placeholder.com/640x480.png/00aacc?text=possimus" target="_blank">
+                                            <img src="https://via.placeholder.com/640x480.png/00aacc?text=possimus" alt="Imagen" width="100" height="100">
+                                        </a>
+                                    </td>
                                     <td>
                                         <div class="d-flex">
                                             <div class="userDatatable-inline-title">
                                                 <a href="#" class="text-dark fw-500">
-                                                    <h6>{{ $enterprise->razon_social }}</h6>
+                                                    <h6>Tejida</h6>
                                                 </a>
                                             </div>
                                         </div>
@@ -134,18 +137,18 @@
 
                                     <td>
                                         <div class="userDatatable-content--subject">
-                                            {{ $enterprise->rfc }}
+                                            nombre
                                         </div>
                                     </td>
 
                                     <td>
                                         <div class="userDatatable-content--priority">
-                                            {{ $enterprise->direccion }}
+                                           36
                                         </div>
                                     </td>
                                     <td>
                                         <div class="userDatatable-content--priority">
-                                            {{ $enterprise->deliveryZone[0]->nombre_direccion??'Mexico' }}
+                                            46
                                         </div>
                                     </td>
                                     <td>
@@ -157,28 +160,28 @@
                                             </li> --}}
                                             <li>
                                                 <a href="{{
-                                                    route('enterprises.show',
-                                                    ['enterprise'=>$enterprise->id,'language'=>app()->getLocale()] ) }}" class="show">
+                                                    route('items.show',
+                                                    ['item'=>1,'language'=>app()->getLocale()] ) }}" class="show">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="{{
-                                                    route('enterprises.edit',
-                                                    ['enterprise'=>$enterprise->id,'language'=>app()->getLocale()] ) }}" class="edit">
+                                                    route('items.edit',
+                                                    ['item'=>1,'language'=>app()->getLocale()] ) }}" class="edit">
                                                     <i class="uil uil-edit"></i>
                                                 </a>
                                             </li>
                                             <li>
 
 
-                                                <a href="{{ route('enterprises.destroy', ['language' => app()->getLocale(), 'enterprise' => $enterprise->id]) }}"
+                                                <a href="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => 1]) }}"
                                                     onclick="event.preventDefault(); document.getElementById('delete-form').submit();"  class="remove">
                                                     <i class="uil uil-trash-alt"></i>
 
                                                  </a>
 
-                                                 <form id="delete-form" action="{{ route('enterprises.destroy', ['language' => app()->getLocale(), 'enterprise' => $enterprise->id]) }}"
+                                                 <form id="delete-form" action="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => 1]) }}"
                                                        method="POST" style="display: none;">
                                                     @csrf
                                                     @method('DELETE')
@@ -188,26 +191,25 @@
                                     </td>
                                 </tr>
 
-                                @empty
-                                    <tr>
-                                        No info
-                                    </tr>
-                                @endforelse
 
                             </tbody>
                         </table>
                     </div>
-                    {{-- <div class="d-flex justify-content-end pt-30">
+                    <div class="d-flex justify-content-end pt-30">
                         <nav class="dm-page ">
                             <ul class="dm-pagination d-flex">
                                 <li class="dm-pagination__item">
-                                    <a href="#" class="dm-pagination__link pagination-control"><span class="la la-angle-left"></span></a>
+                                    <a href="#" class="dm-pagination__link pagination-control"><span
+                                            class="la la-angle-left"></span></a>
                                     <a href="#" class="dm-pagination__link"><span class="page-number">1</span></a>
-                                    <a href="#" class="dm-pagination__link active"><span class="page-number">2</span></a>
+                                    <a href="#" class="dm-pagination__link active"><span
+                                            class="page-number">2</span></a>
                                     <a href="#" class="dm-pagination__link"><span class="page-number">3</span></a>
-                                    <a href="#" class="dm-pagination__link pagination-control"><span class="page-number">...</span></a>
+                                    <a href="#" class="dm-pagination__link pagination-control"><span
+                                            class="page-number">...</span></a>
                                     <a href="#" class="dm-pagination__link"><span class="page-number">12</span></a>
-                                    <a href="#" class="dm-pagination__link pagination-control"><span class="la la-angle-right"></span></a>
+                                    <a href="#" class="dm-pagination__link pagination-control"><span
+                                            class="la la-angle-right"></span></a>
                                     <a href="#" class="dm-pagination__option">
                                     </a>
                                 </li>
@@ -222,12 +224,21 @@
                                 </li>
                             </ul>
                         </nav>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
         </div>
 
-    </div>
-</div>
 
+    </div>
+
+</div>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
 @endsection

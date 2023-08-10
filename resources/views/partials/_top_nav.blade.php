@@ -498,19 +498,16 @@
     </div>
     <div class="navbar-right">
         <ul class="navbar-right__menu">
-            {{-- Search q tal --}}
-            {{--
             <li class="nav-search">
                 <a href="#" class="search-toggle">
                     <i class="uil uil-search"></i>
                     <i class="uil uil-times"></i>
                 </a>
-                     <form action="/" class="search-form-topMenu">
+                <form action="/" class="search-form-topMenu">
                     <span class="search-icon uil uil-search"></span>
                     <input class="form-control me-sm-2 box-shadow-none" type="search" placeholder="Search..." aria-label="Search">
                 </form>
             </li>
-                --}}
             <li class="nav-message">
                 <div class="dropdown-custom">
                     <a href="javascript:;" class="nav-item-toggle icon-active">
@@ -766,10 +763,26 @@
                             <a href="javascript:;" class="nav-item-toggle"><img src="{{ asset('assets/img/ger.png') }}" alt="" class="rounded-circle"></a>
                             @break
                         @default
-                            <a href="javascript:;" class="nav-item-toggle"><img src="{{ asset('assets/img/eng.png') }}" alt="" class="rounded-circle"></a>
+                            <a href="javascript:;" class="nav-item-toggle"><img src="{{ asset('assets/img/spa.png') }}" alt="" class="rounded-circle"></a>
                             @break
                     @endswitch
-
+                    {{-- @if(isset($find_customer))
+                        @foreach ($find_customer as $customer)
+                            <div class="dropdown-wrapper dropdown-wrapper--small">
+                                <a href="{{ route(Route::currentRouteName(),['es',$customer->id]) }}"><img src="{{ asset('assets/img/spa.png') }}" alt=""> Español</a>
+                                <a href="{{ route(Route::currentRouteName(),['en',$customer->id]) }}"><img src="{{ asset('assets/img/eng.png') }}" alt=""> English</a>
+                                <a href="{{ route(Route::currentRouteName(),['ar',$customer->id]) }}"><img src="{{ asset('assets/img/iraq.png') }}" alt=""> Arabic</a>
+                                <a href="{{ route(Route::currentRouteName(),['gr',$customer->id]) }}"><img src="{{ asset('assets/img/ger.png') }}" alt=""> German</a>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="dropdown-wrapper dropdown-wrapper--small">
+                            <a href="{{ route(Route::currentRouteName(),'es') }}"><img src="{{ asset('assets/img/spa.png') }}" alt=""> Español</a>
+                            <a href="{{ route(Route::currentRouteName(),'en') }}"><img src="{{ asset('assets/img/eng.png') }}" alt=""> English</a>
+                            <a href="{{ route(Route::currentRouteName(),'ar') }}"><img src="{{ asset('assets/img/iraq.png') }}" alt=""> Arabic</a>
+                            <a href="{{ route(Route::currentRouteName(),'gr') }}"><img src="{{ asset('assets/img/ger.png') }}" alt=""> German</a>
+                        </div>
+                    @endif --}}
                 </div>
             </li>
             <li class="nav-author">
@@ -826,13 +839,13 @@
                 </div>
             </li>
         </ul>
-        {{-- <div class="navbar-right__mobileAction d-md-none">
+        <div class="navbar-right__mobileAction d-md-none">
             <a href="#" class="btn-search">
                 <img src="{{ asset('assets/img/svg/search.svg') }}" alt="search" class="svg feather-search">
                 <img src="{{ asset('assets/img/svg/x.svg') }}" alt="x" class="svg feather-x">
             </a>
             <a href="#" class="btn-author-action">
                 <img src="{{ asset('assets/img/svg/more-vertical.svg') }}" alt="more-vertical" class="svg"></a>
-        </div> --}}
+        </div>
     </div>
 </nav>
