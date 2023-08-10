@@ -9,6 +9,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LicenseController;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\PaymentMethodController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZipCodeController;
 
 
@@ -47,7 +48,7 @@ Route::get('zip_codes', [ZipCodeController::class,'index'])->name('zip_codes.ind
 
 Route::group(['prefix'=>'{language}'],function(){
     // ==> Usuarios / Users
-    Route::get('/users', [Users::class, 'render'])->name('users.index');
+    Route::resource('users', UserController::class)->only(['index','edit','update','show','destroy']);
     // ==> Clientes / Clients
     Route::resource('clients', ClientController::class);
 

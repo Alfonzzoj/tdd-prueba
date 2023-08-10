@@ -2,6 +2,7 @@
     <ul class="sidebar_nav">
 
         {{-- DASHBOARD --}}
+        @can('dashboard')
         <li>
             <a href="" class="{{ Request::is(app()->getLocale().'/dashboards/demo-one') ? 'active':'' }}">
                 <span class="nav-icon uil uil-create-dashboard"></span>
@@ -9,10 +10,14 @@
             </a>
         </li>
 
+        @endcan
+
+        @can('clients')
         <li class="menu-title mt-10 ">
             <span>Clientes</span>
         </li>
 
+        @can('clients.index')
         {{-- Clientes --}}
         <li>
             <a href="{{ route('clients.index',app()->getLocale()) }}"
@@ -23,20 +28,28 @@
             </a>
 
         </li>
+        @endcan  {{-- end clients index --}}
+        @endcan  {{-- end clients  --}}
+
+        @can('control')
         <li class="menu-title mt-10 ">
             <span>CONTROL</span>
         </li>
 
+        @can('control.users')
         {{-- USUARIOS --}}
         <li>
             <a href="{{ route('users.index',app()->getLocale()) }}"
                 class="{{ Request::is(app()->getLocale().'/users') ? 'active':'' }}">
                 <span class="nav-icon uil uil-users-alt"></span>
-                <span class="menu-text">{{ trans('menu.user-menu-title') }}</span>
+                <span class="menu-text">Usuarios</span>
                 {{-- <span class="toggle-icon"></span> --}}
             </a>
 
         </li>
+
+        @endcan {{-- end control users  --}}
+        @can('control.roles')
         {{-- Roles --}}
         <li>
             <a href="{{ route('user.table',app()->getLocale()) }}"
@@ -47,6 +60,13 @@
             </a>
 
         </li>
+
+
+        @endcan    {{-- end control roles  --}}
+        @endcan     {{-- end control  --}}
+
+        @can('production')
+        {{-- Produccion --}}
         <li class="menu-title mt-10 ">
             <span>Produccion</span>
         </li>
@@ -57,31 +77,41 @@
                 <span class="toggle-icon"></span>
             </a>
             <ul>
-                <li class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Tejidas'  ? 'active' :'' }}">
+                <li
+                    class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Tejidas'  ? 'active' :'' }}">
                     <a href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Tejidas']) }}">
-                    Tejidas
+                        Tejidas
                     </a>
                 </li>
 
-                <li class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Estampadas'  ? 'active':'' }}">
+                <li
+                    class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Estampadas'  ? 'active':'' }}">
                     <a
                         href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Estampadas']) }}">Estampadas</a>
                 </li>
-                <li class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Transfers'  ? 'active':'' }}">
+                <li
+                    class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Transfers'  ? 'active':'' }}">
                     <a
                         href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Transfers']) }}">Transfers</a>
                 </li>
-                <li class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Impresas'  ? 'active':'' }}">
+                <li
+                    class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Impresas'  ? 'active':'' }}">
                     <a href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Impresas']) }}">Hang
                         tag</a>
                 </li>
-                <li class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Impresos'   ? 'active':'' }}">
+                <li
+                    class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Impresos'   ? 'active':'' }}">
                     <a
                         href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Impresos']) }}">Impresos</a>
                 </li>
 
             </ul>
         </li>
+
+        @endcan {{-- end produccion --}}
+
+        @can('catalogs')
+        {{-- Catalogos --}}
         <li class="menu-title mt-10 ">
             <span>CATALOGOS</span>
         </li>
@@ -126,6 +156,8 @@
             </a>
 
         </li> --}}
+
+        @endcan
 
 
 

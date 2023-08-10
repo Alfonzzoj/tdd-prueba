@@ -45,6 +45,6 @@ class UserSeeder extends Seeder
         ])->assignRole('Cliente');
 
         // Crea algunos usuarios adicionales
-        User::factory(20)->create();
+        User::factory(80)->create();
     }
 }

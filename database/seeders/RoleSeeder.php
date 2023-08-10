@@ -16,19 +16,39 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $role1 = Role::create(['name'=>'Admin']);
-        $role2 = Role::create(['name'=>'Vendedor']);
-        $role3 = Role::create(['name'=>'Cliente']);
-        $role4 = Role::create(['name'=>'Diseñador']);
-        $role5 = Role::create(['name'=>'Programador']);
+        $admin =       Role::create(['name'=>'Admin']);
+        $cliente =     Role::create(['name'=>'Cliente']);
+        $vendedor =    Role::create(['name'=>'Vendedor']);
+        $designer =    Role::create(['name'=>'Diseñador']);
+        $programador = Role::create(['name'=>'Programador']);
 
         // ==> Permisos para el rol Admin
-        $permission = Permission::create(['name' => 'admin.home'])->assignRole($role1);
+        $permission = Permission::create(['name' => 'home'])->assignRole($admin);
+        // Dashboard
+        $permission = Permission::create(['name' => 'dashboard'])->assignRole($admin);
+        // Control
+        $permission = Permission::create(['name' => 'control'])->assignRole($admin);
+        $permission = Permission::create(['name' => 'control.users'])->assignRole($admin);
+        $permission = Permission::create(['name' => 'control.roles'])->assignRole($admin);
+
+        // Usuarios
+        $permission = Permission::create(['name' => 'users.index'])->assignRole($admin);
+        $permission = Permission::create(['name' => 'users.create'])->assignRole($admin);
+        $permission = Permission::create(['name' => 'users.edit'])->assignRole($admin);
+        $permission = Permission::create(['name' => 'users.destroy'])->assignRole($admin);
         // Clientes
-        $permission = Permission::create(['name' => 'admin.clients.index'])->syncRoles([$role1,$role2]);
-        $permission = Permission::create(['name' => 'admin.clients.create'])->assignRole($role1);
-        $permission = Permission::create(['name' => 'admin.clients.edit'])->assignRole($role1);
-        $permission = Permission::create(['name' => 'admin.clients.destroy'])->assignRole($role1);
+        $permission = Permission::create(['name' => 'clients'])->syncRoles([$admin,$cliente]);
+        $permission = Permission::create(['name' => 'clients.index'])->syncRoles([$admin,$cliente]);
+        $permission = Permission::create(['name' => 'clients.show'])->syncRoles([$admin,$cliente]);
+        $permission = Permission::create(['name' => 'clients.create'])->assignRole($admin);
+        $permission = Permission::create(['name' => 'clients.edit'])->assignRole($admin);
+        $permission = Permission::create(['name' => 'clients.destroy'])->assignRole($admin);
+        // Produccion
+        $permission = Permission::create(['name' => 'production'])->assignRole($admin);
+        $permission = Permission::create(['name' => 'production.items'])->assignRole($admin);
+        // Catalogos
+        $permission = Permission::create(['name' => 'catalogs'])->assignRole($admin);
+
 
 
 

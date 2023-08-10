@@ -2,19 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
+use Spatie\Permission\Models\Role;
+
 class UserController extends Controller {
-    
+
+    public $title = "Usuarios";
+    public $description = "Crud";
     /**
      * Display user members of the resource.
      *
      * @return \Illuminate\View\View
      */
     public function index(){
-        $title = "User Members";
-        $description = "Some description for the page";
-        return view('pages.applications.user.member',compact('title','description'));
+        $title = $this->title." registrados";
+        $description = "Crud de ".$this->description;
+        return view('users.index',compact('title','description'));
+    }
+
+    public function edit($language,User $user){
+        $title = "Editar ".$this->title." (".$user->name."-".$user->id.")";
+        $description = "Crud de ".$this->description;
+        $roles = Role::all();
+
+        return view('users.edit',compact('user','title','description','roles'));
+    }
+
+    public function update($language,Request $request,User $user){
+        $request->validate([
+            'roles' => 'required|array|min:1',
+        ]);
+        // $user->update($request->all());
+        $user->roles()->sync($request->roles);
+        return redirect()->route('users.index',$request->language)->with('msg','El usuario se actualizo con exito');
     }
 
     /**
