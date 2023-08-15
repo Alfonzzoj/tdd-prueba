@@ -74,7 +74,8 @@
                             <li>
                                 <a href="{{
                                     route('items.show',
-                                    ['item'=>$item->id,'language'=>app()->getLocale()] ) }}" class="show">
+                                    ['item'=>$item->id,'language'=>app()->getLocale(),'tipo'=>$tipo] ) }}"
+                                    class="show">
                                     <i class="fas fa-eye"></i>
                                 </a>
                             </li>
@@ -89,25 +90,27 @@
 
 
                                 <a href="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => $item->id]) }}"
-                                    onclick="event.preventDefault(); document.getElementById('delete-form').submit();"  class="remove">
+                                    onclick="event.preventDefault(); document.getElementById('delete-form').submit();"
+                                    class="remove">
                                     <i class="uil uil-trash-alt"></i>
 
-                                 </a>
+                                </a>
 
-                                 <form id="delete-form" action="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => $item->id]) }}"
-                                       method="POST" style="display: none;">
+                                <form id="delete-form"
+                                    action="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => $item->id]) }}"
+                                    method="POST" style="display: none;">
                                     @csrf
                                     @method('DELETE')
-                                 </form>
+                                </form>
                             </li>
                         </ul>
                     </td>
                 </tr>
 
                 @empty
-                    <tr>
-                        No info
-                    </tr>
+                <tr>
+                    No info
+                </tr>
                 @endforelse
 
             </tbody>
@@ -117,13 +120,15 @@
         <nav class="dm-page ">
             <ul class="dm-pagination d-flex">
                 <li class="dm-pagination__item">
-                    <a href="#" class="dm-pagination__link pagination-control"><span class="la la-angle-left"></span></a>
+                    <a href="#" class="dm-pagination__link pagination-control"><span
+                            class="la la-angle-left"></span></a>
                     <a href="#" class="dm-pagination__link"><span class="page-number">1</span></a>
                     <a href="#" class="dm-pagination__link active"><span class="page-number">2</span></a>
                     <a href="#" class="dm-pagination__link"><span class="page-number">3</span></a>
                     <a href="#" class="dm-pagination__link pagination-control"><span class="page-number">...</span></a>
                     <a href="#" class="dm-pagination__link"><span class="page-number">12</span></a>
-                    <a href="#" class="dm-pagination__link pagination-control"><span class="la la-angle-right"></span></a>
+                    <a href="#" class="dm-pagination__link pagination-control"><span
+                            class="la la-angle-right"></span></a>
                     <a href="#" class="dm-pagination__option">
                     </a>
                 </li>

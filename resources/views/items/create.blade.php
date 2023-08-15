@@ -13,13 +13,19 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="las la-home"></i>Produccion</a></li>
                             <li class="breadcrumb-item"><a
-                                    href="{{ route('items.index',app()->getLocale())  }}">Items</a></li>
+                                    href="{{ route('items.index',['language'=>app()->getLocale(),'tipo'=>$tipo])  }}">Items</a>
+                            </li>
                             <li class="breadcrumb-item active" aria-current="page">Nuevo - {{ $tipo }}</li>
                         </ol>
                     </nav>
                 </div>
             </div>
 
+        </div>
+        <div class="col-lg-12 mb-3">
+            <a href="{{ route('items.index',['language'=>app()->getLocale(),'tipo'=>$tipo])  }}"
+                class="btn bg-#334155 btn-block">Regresar a
+                listado</a>
         </div>
     </div>
     <div class="form-element">
@@ -95,11 +101,11 @@
                 <!-- ends: Informacion basica-->
                 {{-- Informacion segun tipo de item --}}
                 @if ($tipo == 'Tejidas')
-                @include('items.partials.tejida')
+                @include('items.partials.create.tejida')
                 @elseif($tipo === 'Estampadas')
-                @include('items.partials.estampada')
+                @include('items.partials.create.estampada')
                 @elseif($tipo === 'Transfers')
-                @include('items.partials.transfer')
+                @include('items.partials.create.transfer')
                 @else
                 ?
                 @endif

@@ -28,8 +28,8 @@
             </a>
 
         </li>
-        @endcan  {{-- end clients index --}}
-        @endcan  {{-- end clients  --}}
+        @endcan {{-- end clients index --}}
+        @endcan {{-- end clients --}}
 
         @can('control')
         <li class="menu-title mt-10 ">
@@ -48,7 +48,7 @@
 
         </li>
 
-        @endcan {{-- end control users  --}}
+        @endcan {{-- end control users --}}
         @can('control.roles')
         {{-- Roles --}}
         <li>
@@ -62,45 +62,51 @@
         </li>
 
 
-        @endcan    {{-- end control roles  --}}
-        @endcan     {{-- end control  --}}
+        @endcan {{-- end control roles --}}
+        @endcan {{-- end control --}}
 
         @can('production')
         {{-- Produccion --}}
         <li class="menu-title mt-10 ">
             <span>Produccion</span>
         </li>
-        <li class="has-child {{ Request::is(app()->getLocale().'/items') ? 'open':'' }}">
+        <li
+            class="has-child {{ Request::is(app()->getLocale().'/items') || Request::is(app()->getLocale().'/items/*') ? 'open':'' }}">
             <a href="#" class="{{ Request::is(app()->getLocale().'/items') ? 'active':'' }}">
                 <span class="nav-icon uil uil-create-dashboard"></span>
                 <span class="menu-text">Items</span>
                 <span class="toggle-icon"></span>
             </a>
             <ul>
-                <li
-                    class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Tejidas'  ? 'active' :'' }}">
+                <li class="{{
+                    (request()->is(app()->getLocale().'/items') || Request::is(app()->getLocale().'/items/*')
+                    ) && request()->query('tipo') === 'Tejidas'  ? 'active' :'' }}">
                     <a href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Tejidas']) }}">
                         Tejidas
                     </a>
                 </li>
 
-                <li
-                    class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Estampadas'  ? 'active':'' }}">
+                <li class="{{
+                    (request()->is(app()->getLocale().'/items') || Request::is(app()->getLocale().'/items/*')
+                    )&& request()->query('tipo') === 'Estampadas'  ? 'active':'' }}">
                     <a
                         href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Estampadas']) }}">Estampadas</a>
                 </li>
-                <li
-                    class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Transfers'  ? 'active':'' }}">
+                <li class="{{
+                (request()->is(app()->getLocale().'/items') || Request::is(app()->getLocale().'/items/*')
+                    ) && request()->query('tipo') === 'Transfers'  ? 'active':'' }}">
                     <a
                         href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Transfers']) }}">Transfers</a>
                 </li>
-                <li
-                    class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Impresas'  ? 'active':'' }}">
+                <li class="{{
+                (request()->is(app()->getLocale().'/items') || Request::is(app()->getLocale().'/items/*')
+                    ) && request()->query('tipo') === 'Impresas'  ? 'active':'' }}">
                     <a href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Impresas']) }}">Hang
                         tag</a>
                 </li>
-                <li
-                    class="{{ request()->is(app()->getLocale().'/items') && request()->query('tipo') === 'Impresos'   ? 'active':'' }}">
+                <li class="{{
+                 (request()->is(app()->getLocale().'/items') || Request::is(app()->getLocale().'/items/*')
+                    ) && request()->query('tipo') === 'Impresos'   ? 'active':'' }}">
                     <a
                         href="{{ route('items.index', ['language'=> app()->getLocale(),'tipo' => 'Impresos']) }}">Impresos</a>
                 </li>
@@ -127,6 +133,16 @@
 
         </li>
 
+        {{-- Condiciones de pago --}}
+        <li>
+            <a href="{{ route('payment_methods.index',app()->getLocale()) }}"
+                class="{{ Request::is(app()->getLocale().'/applications/payment_condition/*') ? 'active':'' }}">
+                <span class="nav-icon uil uil-users-alt"></span>
+                <span class="menu-text">Condiciones de pago </span>
+                {{-- <span class="toggle-icon"></span> --}}
+            </a>
+
+        </li>
         {{-- Metodos de pago --}}
         <li>
             <a href="{{ route('payment_methods.index',app()->getLocale()) }}"

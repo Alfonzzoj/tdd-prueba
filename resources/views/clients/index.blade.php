@@ -11,13 +11,7 @@
             <div class="breadcrumb-main">
                 <h4 class="text-capitalize breadcrumb-title">Clientes</h4>
 
-                <form action="/" class="d-flex align-items-center add-contact__form my-sm-0 my-2">
 
-                    {{-- <img src="{{ asset('assets/img/svg/search.svg') }}" alt="search" class="svg"> --}}
-                    {{-- {{ $search }} --}}
-                    <input class="form-control me-sm-2 border-0 box-shadow-none" type="search"
-                        placeholder="Buscar por razon social" aria-label="Search" wire:model="search">
-                </form>
 
                 <div class="breadcrumb-action justify-content-center flex-wrap">
                     <nav aria-label="breadcrumb">
@@ -38,83 +32,39 @@
         </div>
     </div>
 
-    {{-- Main Content --}}
-    <div class="row">
-        <div class="col-12 mb-30">
-            <div class="support-ticket-system support-ticket-system--search">
-                <div class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between ">
-                    <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
-                        <div
-                            class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
-                            {{-- TODO: traducir --}}
-                            <h4 class="text-capitalize fw-500 breadcrumb-title">Informacion de clientes registrados</h4>
-                        </div>
-                    </div>
-                    <div class="action-btn">
-                        <a href="{{ route('clients.create',app()->getLocale()) }}" class="btn btn-primary">
-                            Nuevo
-                        </a>
 
-                        {{-- <a href="#" class="btn btn-primary">
-                            Export
-                            <i class="las la-angle-down"></i>
-                        </a> --}}
+    <!-- ends: Datos fiscales-->
+</div>
+{{-- Main Content --}}
+<div class="row">
+    <div class="col-12 mb-30">
+        <div class="support-ticket-system support-ticket-system--search">
+            <div class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between ">
+                <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
+                    <div class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
+                        {{-- TODO: traducir --}}
+                        <h4 class="text-capitalize fw-500 breadcrumb-title">Informacion de clientes registrados
+                        </h4>
                     </div>
                 </div>
-                {{-- <div
-                    class="support-form datatable-support-form d-flex justify-content-xxl-between justify-content-center align-items-center flex-wrap">
-                    <div class="support-form__input">
-                        <div class="d-flex flex-wrap">
-                            <div class="support-form__input-id">
-                                <label>Id:</label>
-                                <div class="dm-select ">
-                                    <select name="select-search" class="select-search form-control ">
-                                        <option value="01">All</option>
-                                        <option value="02">Option 2</option>
-                                        <option value="03">Option 3</option>
-                                        <option value="04">Option 4</option>
-                                        <option value="05">Option 5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="support-form__input-status">
-                                <label>status:</label>
-                                <div class="dm-select ">
-                                    <select name="select-search" class="select-search form-control ">
-                                        <option value="01">All</option>
-                                        <option value="02">Option 2</option>
-                                        <option value="03">Option 3</option>
-                                        <option value="04">Option 4</option>
-                                        <option value="05">Option 5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <button class="support-form__input-button">search</button>
-                        </div>
-                    </div>
-                    <div class="support-form__search">
-                        <div class="support-order-search">
-                            <form action="/" class="support-order-search__form">
-                                <img src="{{ asset('assets/img/svg/search.svg') }}" alt="search" class="svg">
-                                <input class="form-control border-0 box-shadow-none" type="search" placeholder="Search"
-                                    aria-label="Search">
-                            </form>
-                        </div>
-                    </div>
-                </div> --}}
-                {{-- {{ $clients }} --}}
-                @livewire('clients.show-clients',['clients'=>$clients])
+                <div class="action-btn">
+                    <a href="{{ route('clients.create',app()->getLocale()) }}" class="btn btn-primary">
+                        Nuevo
+                    </a>
+
+                    {{-- <a href="#" class="btn btn-primary">
+                        Export
+                        <i class="las la-angle-down"></i>
+                    </a> --}}
+                </div>
             </div>
+
+            {{-- {{ $clients }} --}}
+            @livewire('clients.clients-index')
         </div>
-
     </div>
-</div>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 
-<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
-<script>
-    $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
-</script>
+</div>
+</div>
+
 @endsection

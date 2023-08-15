@@ -26,38 +26,32 @@ use App\Http\Livewire\users\Users;
 |
 */
 
-Route::group(['middleware'=>'guest'],function(){
-    Route::get('/',[AuthController::class,'login'])->name('login');
-    Route::get('/register',[AuthController::class,'register'])->name('register');
-    Route::get('/forget-password',[AuthController::class,'forgetPassword'])->name('forget_password');
-    Route::post('/authenticate',[AuthController::class,'authenticate'])->name('authenticate');
-    Route::post('/signup',[AuthController::class,'signup'])->name('signup');
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/', [AuthController::class, 'login'])->name('login');
+    Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::get('/forget-password', [AuthController::class, 'forgetPassword'])->name('forget_password');
+    Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
+    Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
 });
 
-Route::post('/logout',[AuthController::class,'logout'])->name('logout')->middleware('auth');
-Route::get('/lang/{lang}',[ LanguageController::class,'switchLang'])->name('switch_lang');
-Route::get('/pagination-per-page/{per_page}',[ PaginationController::class,'set_pagination_per_page'])->name('pagination_per_page');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+Route::get('/lang/{lang}', [LanguageController::class, 'switchLang'])->name('switch_lang');
+Route::get('/pagination-per-page/{per_page}', [PaginationController::class, 'set_pagination_per_page'])->name('pagination_per_page');
 
 // Codigos postales / ZipCodes
-Route::post('zip_codes/upload_csv', [ZipCodeController::class,'uploadCSV'])->name('zip_codes.upload_csv');
-Route::get('zip_codes', [ZipCodeController::class,'index'])->name('zip_codes.index');
+Route::post('zip_codes/upload_csv', [ZipCodeController::class, 'uploadCSV'])->name('zip_codes.upload_csv');
+Route::get('zip_codes', [ZipCodeController::class, 'index'])->name('zip_codes.index');
 
 
 
 
 
-Route::group(['prefix'=>'{language}'],function(){
+Route::group(['prefix' => '{language}'], function () {
     // ==> Usuarios / Users
-    Route::resource('users', UserController::class)->only(['index','edit','update','show','destroy']);
+    Route::resource('users', UserController::class)->only(['index', 'edit', 'update', 'show', 'destroy']);
+
     // ==> Clientes / Clients
     Route::resource('clients', ClientController::class);
-
-    // TODO: eliminar si no hace falta
-    Route::get('clients/{id}/show2',function(){
-        $title = 'Clientes';
-        $description = 'Clientes management';
-        return view('clients.show_temporal',compact('title','description'));
-    })->name('clients.show2');
 
     // ==> Empresas / Enterprises
     Route::resource('enterprises', EnterpriseController::class);
@@ -65,12 +59,13 @@ Route::group(['prefix'=>'{language}'],function(){
     // ==> Items / items
     Route::resource('items', ItemController::class);
 
-    // ==> Metodos de pago / PaymentMEthods
+    // ==> Metodos de pago / PaymentMethods
     Route::resource('payment_methods', PaymentMethodController::class);
 
+    // ==> Condiciones de pago / PaymentCondition
     // ==> Licencias / Licences
     Route::resource('licences', LicenseController::class);
-    Route::get('licences/items/{license}',[LicenseController::class,'items'])->name('licences.items');
+    Route::get('licences/items/{license}', [LicenseController::class, 'items'])->name('licences.items');
 
 
     // Route::get('items/{tipo?}', ItemController::class)->name('items.index');

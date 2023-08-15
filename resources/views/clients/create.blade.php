@@ -636,7 +636,8 @@
                                             class="form-control ih-medium ip-light radius-xs b-light px-15"
                                             id="forma_pago" placeholder="Ingrese forma de pago "> --}}
                                         <div class="dm-select-list d-flex">
-                                            <select name="payment_method" id="s" class="form-control select-search ">
+                                            <select name="payment_method" id="payment_method"
+                                                class="form-control select-search ">
                                                 @foreach($payment_methods as $payment_method)
                                                 <option value="{{ $payment_method->id }}">{{ $payment_method->nombre }}
                                                 </option>
@@ -648,11 +649,22 @@
                                 {{-- Condiciones de Pago --}}
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="condicion_pago"
-                                            class="il-gray fs-14 fw-500 align-center mb-10">Condicion de pago</label>
-                                        <input type="text" name="condicion_pago"
+                                        <label for="payment_condition"
+                                            class="il-gray fs-14 fw-500 align-center mb-10">Forma de
+                                            pago </label>
+                                        {{-- <input type="text" name="condicion_pago"
                                             class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                            id="condicion_pago" placeholder="Ingrese la condicion de pago">
+                                            id="condicion_pago" placeholder="Ingrese forma de pago "> --}}
+                                        <div class="dm-select-list d-flex">
+                                            <select name="payment_condition" id="payment_condition"
+                                                class="form-control select-search">
+                                                @foreach($payment_conditions as $payment_condition)
+                                                <option value="{{ $payment_condition->id }}">{{
+                                                    $payment_condition->nombre }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 {{-- Dias pago --}}
@@ -703,15 +715,15 @@
                                 {{-- % Anticipo --}}
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="monto_de_credito"
-                                            class="il-gray fs-14 fw-500 align-center mb-10">% anticipo</label>
+                                        <label for="monto_de_credito" class="il-gray fs-14 fw-500 align-center mb-10">%
+                                            anticipo</label>
                                         <input type="number" min="0" max="100"
                                             class="form-control ih-medium ip-light radius-xs b-light px-15"
                                             id="monto_de_credito" placeholder="0-100 ">
                                     </div>
                                 </div>
 
-                                {{--  Contraentrega --}}
+                                {{-- Contraentrega --}}
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="monto_de_credito"
@@ -845,13 +857,7 @@
   }
   var selectElements = document.querySelectorAll("#select-search, .kb__select, .select-search");
 
-// selectElements.forEach(function(selectElement) {
-//   selectElement.select2({
-//     placeholder: "Search a person",
-//     dropdownCssClass: "category-member",
-//     allowClear: true
-//   });
-// });
+
 });
 </script>
 @endsection

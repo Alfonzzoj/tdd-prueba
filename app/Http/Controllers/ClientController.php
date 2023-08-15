@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\Enterprise;
 use App\Models\License;
+use App\Models\PaymentCondition;
 use App\Models\PaymentMethod;
 use Illuminate\Http\Request;
 
@@ -26,12 +27,12 @@ class ClientController extends Controller
     {
         $title = $this->title;
         $description = $this->description;
-        $clients = Client::with(['deliveryZones','enterprise'])->get();
+        $clients = Client::with(['deliveryZones', 'enterprise'])->get();
 
         // Enterprises
 
         // dd($clients);
-        return view('clients.index',compact('title','description','clients'));
+        return view('clients.index', compact('title', 'description', 'clients'));
     }
 
     /**
@@ -46,6 +47,7 @@ class ClientController extends Controller
         // Obtencion de infos
         $enterprises = Enterprise::all();
         $payment_methods = PaymentMethod::all();
+        $payment_conditions = PaymentCondition::all();
         $licences = License::all();
         // codigos postales
         $codigos_postales_json = file_get_contents(public_path('data/codigos_postales.json'));
@@ -54,7 +56,7 @@ class ClientController extends Controller
         // return $codigos_postales;
 
 
-        return view('clients.create',compact('title','description','enterprises','payment_methods','licences','codigos_postales'));
+        return view('clients.create', compact('title', 'description', 'enterprises', 'payment_methods', 'licences', 'codigos_postales', 'payment_conditions'));
     }
 
     /**
@@ -71,7 +73,7 @@ class ClientController extends Controller
             'telefono_corporativo' => $request->telefono_corporativo,
             'enterprise_id' => 1,
         ])->save();
-        return redirect()->route('clients.index',app()->getLocale())->with('success','Cliente creado correctamente');
+        return redirect()->route('clients.index', app()->getLocale())->with('success', 'Cliente creado correctamente');
     }
 
     /**
@@ -80,13 +82,13 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($language,$id)
+    public function show($language, $id)
     {
         $title = $this->title;
         $description = $this->description;
-        $client = Client::with(['deliveryZones','enterprise','taxAddress','contacts'])->find($id);
+        $client = Client::with(['deliveryZones', 'enterprise', 'taxAddress', 'contacts'])->find($id);
         // dd($client);
-        return view('clients.show',compact('title','description','client'));
+        return view('clients.show', compact('title', 'description', 'client'));
     }
 
     /**
@@ -95,14 +97,13 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($language,$id)
+    public function edit($language, $id)
     {
         $title = $this->title;
         $description = $this->description;
-        $client = Client::with(['deliveryZones','enterprise','taxAddress','contacts'])->find($id);
+        $client = Client::with(['deliveryZones', 'enterprise', 'taxAddress', 'contacts'])->find($id);
         // dd($client->deliveryZones);
-        return view('clients.edit',compact('title','description','client'));
-
+        return view('clients.edit', compact('title', 'description', 'client'));
     }
 
     /**
@@ -112,7 +113,7 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $language,$client_id)
+    public function update(Request $request, $language, $client_id)
     {
         // dd($request->all());
         $title = $this->title;
@@ -125,7 +126,7 @@ class ClientController extends Controller
             'enterprise_id' => 1,
         ]);
         $client->save();
-        return redirect()->route('clients.index',app()->getLocale())->with('success','Cliente actualizado correctamente');
+        return redirect()->route('clients.index', app()->getLocale())->with('success', 'Cliente actualizado correctamente');
     }
 
     /**
@@ -139,5 +140,5 @@ class ClientController extends Controller
         $client = Client::find($client);
         $client->delete();
         return redirect()->route('clients.index', ['language' => $language]);
-        }
+    }
 }

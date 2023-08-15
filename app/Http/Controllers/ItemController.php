@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Client;
@@ -15,10 +16,10 @@ class ItemController extends Controller
     protected $title = 'Items';
     protected $description = 'Items management';
 
-    public function index($language = 'es',Request $request)
+    public function index($language = 'es', Request $request)
     {
         $tipo = $request->input('tipo');
-        $title = $this->title.' - '.$tipo;
+        $title = $this->title . ' - ' . $tipo;
         $description = $this->description;
 
         if (isset($tipo)) {
@@ -43,12 +44,11 @@ class ItemController extends Controller
                     $items = [];
                     break;
             }
-
         } else {
             // El parámetro no está presente en la URL
             // Realizar otras acciones
         }
-        return view('items.index', compact('title', 'description', 'items','tipo'));
+        return view('items.index', compact('title', 'description', 'items', 'tipo'));
     }
 
     /**
@@ -56,12 +56,12 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($language,Request $request)
+    public function create($language, Request $request)
     {
         $tipo = $request->input('tipo');
         $title = $this->title;
         $description = $this->description;
-        return view('items.create', compact('title', 'description','tipo'));
+        return view('items.create', compact('title', 'description', 'tipo'));
     }
 
     /**
@@ -86,13 +86,15 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($language,$item)
+    public function show($language, Request $request, $item)
     {
         $title = $this->title;
         $description = $this->description;
+        $tipo = $request->input('tipo');
+
         $item = Item::find($item);
-        $client = Client::find(1);
-        return view('items.show', compact('title', 'description', 'item','client'));
+        // $client = Client::find(1);
+        return view('items.show', compact('title', 'description', 'item', 'tipo'));
     }
 
     /**
