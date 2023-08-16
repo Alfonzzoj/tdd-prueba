@@ -5,1048 +5,179 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
 
 <div class="container-fluid">
-    {{-- Breadcrumb --}}
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="breadcrumb-main">
-                <h4 class="text-capitalize breadcrumb-title">Licencias</h4>
-                <div class="breadcrumb-action justify-content-center flex-wrap">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href="#">
-                                    <i class="las la-home"></i>Catalogos
-                                </a>
-                            </li>
-                            {{-- TODO: traducir --}}
+	{{-- Breadcrumb --}}
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="breadcrumb-main">
+				<h4 class="text-capitalize breadcrumb-title">Licencias - Items</h4>
+				<div class="breadcrumb-action justify-content-center flex-wrap">
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item">
+								<a href="#">
+									<i class="las la-home"></i>Catalogos
+								</a>
+							</li>
+							{{-- TODO: traducir --}}
 
-                            <li class="breadcrumb-item active">Licencias</li>
-                            <li class="breadcrumb-item"  aria-current="page"><a href="#">Items</a></li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
+							<li class="breadcrumb-item" aria-current="page"><a
+									href="{{ route('licences.index',['language'=>app()->getLocale()])  }}">Licencias</a></li>
+							<li class="breadcrumb-item active">Items</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-12 mb-3">
+			<a href="{{ route('licences.index',['language'=>app()->getLocale()])  }}"
+				class="btn bg-#334155 btn-block">Regresar a
+				listado</a>
+		</div>
+	</div>
 
-    {{-- Main Content --}}
-    {{-- Tejidas --}}
-    <div class="row">
-        <div class="col-12 mb-30">
-            <div class="support-ticket-system support-ticket-system--search">
-                <div class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between ">
-                    <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
-                        <div
-                            class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
-                            <h4 class="text-capitalize fw-500 breadcrumb-title">Tejida</h4>
-                        </div>
-                    </div>
-                    <div class="action-btn">
-                        <a href="#" class="btn btn-primary">
-                            Export
-                            <i class="las la-angle-down"></i>
-                        </a>
-                    </div>
-                </div>
-                <div
-                    class="support-form datatable-support-form d-flex justify-content-xxl-between justify-content-center align-items-center flex-wrap">
-                    <div class="support-form__input">
-                        <div class="d-flex flex-wrap">
-                            <div class="support-form__input-id">
-                                <label>Id:</label>
-                                <div class="dm-select ">
-                                    <select name="select-search" class="select-search form-control ">
-                                        <option value="01">All</option>
-                                        <option value="02">Option 2</option>
-                                        <option value="03">Option 3</option>
-                                        <option value="04">Option 4</option>
-                                        <option value="05">Option 5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="support-form__input-status">
-                                <label>status:</label>
-                                <div class="dm-select ">
-                                    <select name="select-search" class="select-search form-control ">
-                                        <option value="01">All</option>
-                                        <option value="02">Option 2</option>
-                                        <option value="03">Option 3</option>
-                                        <option value="04">Option 4</option>
-                                        <option value="05">Option 5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <button class="support-form__input-button">search</button>
-                        </div>
-                    </div>
-                    <div class="support-form__search">
-                        <div class="support-order-search">
-                            <form action="/" class="support-order-search__form">
-                                <img src="{{ asset('assets/img/svg/search.svg') }}" alt="search" class="svg">
-                                <input class="form-control border-0 box-shadow-none" type="search" placeholder="Search"
-                                    aria-label="Search">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1">
-                    <div class="table-responsive">
-                        <table class="table mb-0 table-borderless">
-                            <thead>
-                                <tr class="userDatatable-header">
-                                    <th>
-                                        <span class="userDatatable-title">ID</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Imagen</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Tipo</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Nombre de etiqueta</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Largo</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Ancho</span>
-                                    </th>
+	{{-- Main Content --}}
+	{{-- Items --}}
+	<div class="row">
+		<div class="col-12 mb-30">
+			<div class="support-ticket-system support-ticket-system--search">
+				<div class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between ">
+					<div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
+						<div class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
+							<h4 class="text-capitalize fw-500 breadcrumb-title">Items</h4>
+						</div>
+					</div>
+					<div class="action-btn">
+						<a href="#" class="btn btn-primary">
+							Export
+							<i class="las la-angle-down"></i>
+						</a>
+					</div>
+				</div>
+				<div
+					class="support-form datatable-support-form d-flex justify-content-xxl-between justify-content-center align-items-center flex-wrap">
+					<div class="support-form__input">
+						<div class="d-flex flex-wrap">
+							{{-- <div class="support-form__input-id">
+								<label>Id:</label>
+								<div class="dm-select ">
+									<select name="select-search" class="select-search form-control ">
+										<option value="01">All</option>
+										<option value="02">Option 2</option>
+										<option value="03">Option 3</option>
+										<option value="04">Option 4</option>
+										<option value="05">Option 5</option>
+									</select>
+								</div>
+							</div> --}}
+							<div class="support-form__input-status">
+								<label>status:</label>
+								<div class="dm-select ">
+									<select name="select-search" class="select-search form-control ">
+										<option value="01">All</option>
+										<option value="02">Option 2</option>
+										<option value="03">Option 3</option>
+										<option value="04">Option 4</option>
+										<option value="05">Option 5</option>
+									</select>
+								</div>
+							</div>
+							<button class="support-form__input-button">Buscar</button>
+						</div>
+					</div>
+					<div class="support-form__search">
+						<div class="support-order-search">
+							<form action="/" class="support-order-search__form">
+								<img src="{{ asset('assets/img/svg/search.svg') }}" alt="search" class="svg">
+								<input class="form-control border-0 box-shadow-none" type="search" placeholder="Buscar"
+									aria-label="Search">
+							</form>
+						</div>
+					</div>
+				</div>
 
-                                    <th class="actions">
-                                        <span class="userDatatable-title">Actions</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="userDatatable-content--priority">
-                                        <a href="https://via.placeholder.com/640x480.png/00aacc?text=possimus" target="_blank">
-                                            <img src="https://via.placeholder.com/640x480.png/00aacc?text=possimus" alt="Imagen" width="100" height="100">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <div class="userDatatable-inline-title">
-                                                <a href="#" class="text-dark fw-500">
-                                                    <h6>Tejida</h6>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </td>
+				<div class="tab-wrapper">
 
-                                    <td>
-                                        <div class="userDatatable-content--subject">
-                                            nombre
-                                        </div>
-                                    </td>
+					<div class="dm-tab tab-horizontal">
+						<ul class="nav nav-tabs vertical-tabs" role="tablist">
 
-                                    <td>
-                                        <div class="userDatatable-content--priority">
-                                           36
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="userDatatable-content--priority">
-                                            46
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                                            {{-- <li>
-                                                <a href="#" class="view">
-                                                    <i class="uil uil-setting"></i>
-                                                </a>
-                                            </li> --}}
-                                            <li>
-                                                <a href="{{
-                                                    route('items.show',
-                                                    ['item'=>1,'language'=>app()->getLocale()] ) }}" class="show">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{
-                                                    route('items.edit',
-                                                    ['item'=>1,'language'=>app()->getLocale()] ) }}" class="edit">
-                                                    <i class="uil uil-edit"></i>
-                                                </a>
-                                            </li>
-                                            <li>
+							<li class="nav-item">
+								<a class="nav-link active" id="tab-tipo-etiqueta-1-tab" data-bs-toggle="tab" href="#tab-tipo-etiqueta-1"
+									role="tab" aria-selected="true">Tejida</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="tab-tipo-etiqueta-2-tab" data-bs-toggle="tab" href="#tab-tipo-etiqueta-2"
+									role="tab" aria-selected="false">Estampada</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="tab-tipo-etiqueta-3-tab" data-bs-toggle="tab" href="#tab-tipo-etiqueta-3"
+									role="tab" aria-selected="false">Transfer</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="tab-tipo-etiqueta-4-tab" data-bs-toggle="tab" href="#tab-tipo-etiqueta-4"
+									role="tab" aria-selected="false">Impresa</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="tab-tipo-etiqueta-5-tab" data-bs-toggle="tab" href="#tab-tipo-etiqueta-5"
+									role="tab" aria-selected="false">Impreso</a>
+							</li>
 
 
-                                                <a href="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => 1]) }}"
-                                                    onclick="event.preventDefault(); document.getElementById('delete-form').submit();"  class="remove">
-                                                    <i class="uil uil-trash-alt"></i>
 
-                                                 </a>
-
-                                                 <form id="delete-form" action="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => 1]) }}"
-                                                       method="POST" style="display: none;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                 </form>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
+						</ul>
+						<div class="tab-content">
 
 
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="d-flex justify-content-end pt-30">
-                        <nav class="dm-page ">
-                            <ul class="dm-pagination d-flex">
-                                <li class="dm-pagination__item">
-                                    <a href="#" class="dm-pagination__link pagination-control"><span
-                                            class="la la-angle-left"></span></a>
-                                    <a href="#" class="dm-pagination__link"><span class="page-number">1</span></a>
-                                    <a href="#" class="dm-pagination__link active"><span
-                                            class="page-number">2</span></a>
-                                    <a href="#" class="dm-pagination__link"><span class="page-number">3</span></a>
-                                    <a href="#" class="dm-pagination__link pagination-control"><span
-                                            class="page-number">...</span></a>
-                                    <a href="#" class="dm-pagination__link"><span class="page-number">12</span></a>
-                                    <a href="#" class="dm-pagination__link pagination-control"><span
-                                            class="la la-angle-right"></span></a>
-                                    <a href="#" class="dm-pagination__option">
-                                    </a>
-                                </li>
-                                <li class="dm-pagination__item">
-                                    <div class="paging-option">
-                                        <select name="page-number" class="page-selection">
-                                            <option value="20">20/page</option>
-                                            <option value="40">40/page</option>
-                                            <option value="60">60/page</option>
-                                        </select>
-                                    </div>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+							<div class="tab-pane fade show active" id="tab-tipo-etiqueta-1" role="tabpanel"
+								aria-labelledby="tab-tipo-etiqueta-1-tab">
+								1
+								@include('licences.items.table')
+							</div>
+							<div class="tab-pane fade" id="tab-tipo-etiqueta-2" role="tabpanel"
+								aria-labelledby="tab-tipo-etiqueta-2-tab">
+								2
+								@include('licences.items.table')
+
+							</div>
+							<div class="tab-pane fade" id="tab-tipo-etiqueta-3" role="tabpanel"
+								aria-labelledby="tab-tipo-etiqueta-3-tab">
+								3
+								@include('licences.items.table')
+
+							</div>
+							<div class="tab-pane fade" id="tab-tipo-etiqueta-4" role="tabpanel"
+								aria-labelledby="tab-tipo-etiqueta-4-tab">
+								4
+								@include('licences.items.table')
+
+							</div>
+							<div class="tab-pane fade" id="tab-tipo-etiqueta-5" role="tabpanel"
+								aria-labelledby="tab-tipo-etiqueta-4-tab">
+								5
+								@include('licences.items.table')
+
+							</div>
+
+						</div>
+					</div>
+
+				</div>
 
 
-    </div>
-    {{-- Estampadas --}}
-    <div class="row">
-        <div class="col-12 mb-30">
-            <div class="support-ticket-system support-ticket-system--search">
-                <div class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between ">
-                    <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
-                        <div
-                            class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
-                            <h4 class="text-capitalize fw-500 breadcrumb-title">Estampadas</h4>
-                        </div>
-                    </div>
-                    <div class="action-btn">
-                        <a href="#" class="btn btn-primary">
-                            Export
-                            <i class="las la-angle-down"></i>
-                        </a>
-                    </div>
-                </div>
-                <div
-                    class="support-form datatable-support-form d-flex justify-content-xxl-between justify-content-center align-items-center flex-wrap">
-                    <div class="support-form__input">
-                        <div class="d-flex flex-wrap">
-                            <div class="support-form__input-id">
-                                <label>Id:</label>
-                                <div class="dm-select ">
-                                    <select name="select-search" class="select-search form-control ">
-                                        <option value="01">All</option>
-                                        <option value="02">Option 2</option>
-                                        <option value="03">Option 3</option>
-                                        <option value="04">Option 4</option>
-                                        <option value="05">Option 5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="support-form__input-status">
-                                <label>status:</label>
-                                <div class="dm-select ">
-                                    <select name="select-search" class="select-search form-control ">
-                                        <option value="01">All</option>
-                                        <option value="02">Option 2</option>
-                                        <option value="03">Option 3</option>
-                                        <option value="04">Option 4</option>
-                                        <option value="05">Option 5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <button class="support-form__input-button">search</button>
-                        </div>
-                    </div>
-                    <div class="support-form__search">
-                        <div class="support-order-search">
-                            <form action="/" class="support-order-search__form">
-                                <img src="{{ asset('assets/img/svg/search.svg') }}" alt="search" class="svg">
-                                <input class="form-control border-0 box-shadow-none" type="search" placeholder="Search"
-                                    aria-label="Search">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1">
-                    <div class="table-responsive">
-                        <table class="table mb-0 table-borderless">
-                            <thead>
-                                <tr class="userDatatable-header">
-                                    <th>
-                                        <span class="userDatatable-title">ID</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Imagen</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Tipo</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Nombre de etiqueta</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Largo</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Ancho</span>
-                                    </th>
-
-                                    <th class="actions">
-                                        <span class="userDatatable-title">Actions</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="userDatatable-content--priority">
-                                        <a href="https://via.placeholder.com/640x480.png/00aacc?text=possimus" target="_blank">
-                                            <img src="https://via.placeholder.com/640x480.png/00aacc?text=possimus" alt="Imagen" width="100" height="100">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <div class="userDatatable-inline-title">
-                                                <a href="#" class="text-dark fw-500">
-                                                    <h6>Estampada</h6>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                    <td>
-                                        <div class="userDatatable-content--subject">
-                                            nombre
-                                        </div>
-                                    </td>
-
-                                    <td>
-                                        <div class="userDatatable-content--priority">
-                                           36
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="userDatatable-content--priority">
-                                            46
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                                            {{-- <li>
-                                                <a href="#" class="view">
-                                                    <i class="uil uil-setting"></i>
-                                                </a>
-                                            </li> --}}
-                                            <li>
-                                                <a href="{{
-                                                    route('items.show',
-                                                    ['item'=>1,'language'=>app()->getLocale()] ) }}" class="show">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{
-                                                    route('items.edit',
-                                                    ['item'=>1,'language'=>app()->getLocale()] ) }}" class="edit">
-                                                    <i class="uil uil-edit"></i>
-                                                </a>
-                                            </li>
-                                            <li>
+			</div>
+		</div>
 
 
-                                                <a href="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => 1]) }}"
-                                                    onclick="event.preventDefault(); document.getElementById('delete-form').submit();"  class="remove">
-                                                    <i class="uil uil-trash-alt"></i>
+	</div>
 
-                                                 </a>
-
-                                                 <form id="delete-form" action="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => 1]) }}"
-                                                       method="POST" style="display: none;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                 </form>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-
-
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="d-flex justify-content-end pt-30">
-                        <nav class="dm-page ">
-                            <ul class="dm-pagination d-flex">
-                                <li class="dm-pagination__item">
-                                    <a href="#" class="dm-pagination__link pagination-control"><span
-                                            class="la la-angle-left"></span></a>
-                                    <a href="#" class="dm-pagination__link"><span class="page-number">1</span></a>
-                                    <a href="#" class="dm-pagination__link active"><span
-                                            class="page-number">2</span></a>
-                                    <a href="#" class="dm-pagination__link"><span class="page-number">3</span></a>
-                                    <a href="#" class="dm-pagination__link pagination-control"><span
-                                            class="page-number">...</span></a>
-                                    <a href="#" class="dm-pagination__link"><span class="page-number">12</span></a>
-                                    <a href="#" class="dm-pagination__link pagination-control"><span
-                                            class="la la-angle-right"></span></a>
-                                    <a href="#" class="dm-pagination__option">
-                                    </a>
-                                </li>
-                                <li class="dm-pagination__item">
-                                    <div class="paging-option">
-                                        <select name="page-number" class="page-selection">
-                                            <option value="20">20/page</option>
-                                            <option value="40">40/page</option>
-                                            <option value="60">60/page</option>
-                                        </select>
-                                    </div>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-    {{-- Transfers --}}
-    <div class="row">
-        <div class="col-12 mb-30">
-            <div class="support-ticket-system support-ticket-system--search">
-                <div class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between ">
-                    <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
-                        <div
-                            class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
-                            <h4 class="text-capitalize fw-500 breadcrumb-title">Transfers</h4>
-                        </div>
-                    </div>
-                    <div class="action-btn">
-                        <a href="#" class="btn btn-primary">
-                            Export
-                            <i class="las la-angle-down"></i>
-                        </a>
-                    </div>
-                </div>
-                <div
-                    class="support-form datatable-support-form d-flex justify-content-xxl-between justify-content-center align-items-center flex-wrap">
-                    <div class="support-form__input">
-                        <div class="d-flex flex-wrap">
-                            <div class="support-form__input-id">
-                                <label>Id:</label>
-                                <div class="dm-select ">
-                                    <select name="select-search" class="select-search form-control ">
-                                        <option value="01">All</option>
-                                        <option value="02">Option 2</option>
-                                        <option value="03">Option 3</option>
-                                        <option value="04">Option 4</option>
-                                        <option value="05">Option 5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="support-form__input-status">
-                                <label>status:</label>
-                                <div class="dm-select ">
-                                    <select name="select-search" class="select-search form-control ">
-                                        <option value="01">All</option>
-                                        <option value="02">Option 2</option>
-                                        <option value="03">Option 3</option>
-                                        <option value="04">Option 4</option>
-                                        <option value="05">Option 5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <button class="support-form__input-button">search</button>
-                        </div>
-                    </div>
-                    <div class="support-form__search">
-                        <div class="support-order-search">
-                            <form action="/" class="support-order-search__form">
-                                <img src="{{ asset('assets/img/svg/search.svg') }}" alt="search" class="svg">
-                                <input class="form-control border-0 box-shadow-none" type="search" placeholder="Search"
-                                    aria-label="Search">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1">
-                    <div class="table-responsive">
-                        <table class="table mb-0 table-borderless">
-                            <thead>
-                                <tr class="userDatatable-header">
-                                    <th>
-                                        <span class="userDatatable-title">ID</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Imagen</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Tipo</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Nombre de etiqueta</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Largo</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Ancho</span>
-                                    </th>
-
-                                    <th class="actions">
-                                        <span class="userDatatable-title">Actions</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="userDatatable-content--priority">
-                                        <a href="https://via.placeholder.com/640x480.png/00aacc?text=possimus" target="_blank">
-                                            <img src="https://via.placeholder.com/640x480.png/00aacc?text=possimus" alt="Imagen" width="100" height="100">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <div class="userDatatable-inline-title">
-                                                <a href="#" class="text-dark fw-500">
-                                                    <h6>Transfer</h6>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                    <td>
-                                        <div class="userDatatable-content--subject">
-                                            nombre
-                                        </div>
-                                    </td>
-
-                                    <td>
-                                        <div class="userDatatable-content--priority">
-                                           36
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="userDatatable-content--priority">
-                                            46
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                                            {{-- <li>
-                                                <a href="#" class="view">
-                                                    <i class="uil uil-setting"></i>
-                                                </a>
-                                            </li> --}}
-                                            <li>
-                                                <a href="{{
-                                                    route('items.show',
-                                                    ['item'=>1,'language'=>app()->getLocale()] ) }}" class="show">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{
-                                                    route('items.edit',
-                                                    ['item'=>1,'language'=>app()->getLocale()] ) }}" class="edit">
-                                                    <i class="uil uil-edit"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-
-
-                                                <a href="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => 1]) }}"
-                                                    onclick="event.preventDefault(); document.getElementById('delete-form').submit();"  class="remove">
-                                                    <i class="uil uil-trash-alt"></i>
-
-                                                 </a>
-
-                                                 <form id="delete-form" action="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => 1]) }}"
-                                                       method="POST" style="display: none;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                 </form>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-
-
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="d-flex justify-content-end pt-30">
-                        <nav class="dm-page ">
-                            <ul class="dm-pagination d-flex">
-                                <li class="dm-pagination__item">
-                                    <a href="#" class="dm-pagination__link pagination-control"><span
-                                            class="la la-angle-left"></span></a>
-                                    <a href="#" class="dm-pagination__link"><span class="page-number">1</span></a>
-                                    <a href="#" class="dm-pagination__link active"><span
-                                            class="page-number">2</span></a>
-                                    <a href="#" class="dm-pagination__link"><span class="page-number">3</span></a>
-                                    <a href="#" class="dm-pagination__link pagination-control"><span
-                                            class="page-number">...</span></a>
-                                    <a href="#" class="dm-pagination__link"><span class="page-number">12</span></a>
-                                    <a href="#" class="dm-pagination__link pagination-control"><span
-                                            class="la la-angle-right"></span></a>
-                                    <a href="#" class="dm-pagination__option">
-                                    </a>
-                                </li>
-                                <li class="dm-pagination__item">
-                                    <div class="paging-option">
-                                        <select name="page-number" class="page-selection">
-                                            <option value="20">20/page</option>
-                                            <option value="40">40/page</option>
-                                            <option value="60">60/page</option>
-                                        </select>
-                                    </div>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-    {{-- Impresas --}}
-    <div class="row">
-        <div class="col-12 mb-30">
-            <div class="support-ticket-system support-ticket-system--search">
-                <div class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between ">
-                    <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
-                        <div
-                            class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
-                            <h4 class="text-capitalize fw-500 breadcrumb-title">Impresas</h4>
-                        </div>
-                    </div>
-                    <div class="action-btn">
-                        <a href="#" class="btn btn-primary">
-                            Export
-                            <i class="las la-angle-down"></i>
-                        </a>
-                    </div>
-                </div>
-                <div
-                    class="support-form datatable-support-form d-flex justify-content-xxl-between justify-content-center align-items-center flex-wrap">
-                    <div class="support-form__input">
-                        <div class="d-flex flex-wrap">
-                            <div class="support-form__input-id">
-                                <label>Id:</label>
-                                <div class="dm-select ">
-                                    <select name="select-search" class="select-search form-control ">
-                                        <option value="01">All</option>
-                                        <option value="02">Option 2</option>
-                                        <option value="03">Option 3</option>
-                                        <option value="04">Option 4</option>
-                                        <option value="05">Option 5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="support-form__input-status">
-                                <label>status:</label>
-                                <div class="dm-select ">
-                                    <select name="select-search" class="select-search form-control ">
-                                        <option value="01">All</option>
-                                        <option value="02">Option 2</option>
-                                        <option value="03">Option 3</option>
-                                        <option value="04">Option 4</option>
-                                        <option value="05">Option 5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <button class="support-form__input-button">search</button>
-                        </div>
-                    </div>
-                    <div class="support-form__search">
-                        <div class="support-order-search">
-                            <form action="/" class="support-order-search__form">
-                                <img src="{{ asset('assets/img/svg/search.svg') }}" alt="search" class="svg">
-                                <input class="form-control border-0 box-shadow-none" type="search" placeholder="Search"
-                                    aria-label="Search">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1">
-                    <div class="table-responsive">
-                        <table class="table mb-0 table-borderless">
-                            <thead>
-                                <tr class="userDatatable-header">
-                                    <th>
-                                        <span class="userDatatable-title">ID</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Imagen</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Tipo</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Nombre de etiqueta</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Largo</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Ancho</span>
-                                    </th>
-
-                                    <th class="actions">
-                                        <span class="userDatatable-title">Actions</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="userDatatable-content--priority">
-                                        <a href="https://via.placeholder.com/640x480.png/00aacc?text=possimus" target="_blank">
-                                            <img src="https://via.placeholder.com/640x480.png/00aacc?text=possimus" alt="Imagen" width="100" height="100">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <div class="userDatatable-inline-title">
-                                                <a href="#" class="text-dark fw-500">
-                                                    <h6>Impresa</h6>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                    <td>
-                                        <div class="userDatatable-content--subject">
-                                            nombre
-                                        </div>
-                                    </td>
-
-                                    <td>
-                                        <div class="userDatatable-content--priority">
-                                           36
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="userDatatable-content--priority">
-                                            46
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                                            {{-- <li>
-                                                <a href="#" class="view">
-                                                    <i class="uil uil-setting"></i>
-                                                </a>
-                                            </li> --}}
-                                            <li>
-                                                <a href="{{
-                                                    route('items.show',
-                                                    ['item'=>1,'language'=>app()->getLocale()] ) }}" class="show">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{
-                                                    route('items.edit',
-                                                    ['item'=>1,'language'=>app()->getLocale()] ) }}" class="edit">
-                                                    <i class="uil uil-edit"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-
-
-                                                <a href="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => 1]) }}"
-                                                    onclick="event.preventDefault(); document.getElementById('delete-form').submit();"  class="remove">
-                                                    <i class="uil uil-trash-alt"></i>
-
-                                                 </a>
-
-                                                 <form id="delete-form" action="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => 1]) }}"
-                                                       method="POST" style="display: none;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                 </form>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-
-
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="d-flex justify-content-end pt-30">
-                        <nav class="dm-page ">
-                            <ul class="dm-pagination d-flex">
-                                <li class="dm-pagination__item">
-                                    <a href="#" class="dm-pagination__link pagination-control"><span
-                                            class="la la-angle-left"></span></a>
-                                    <a href="#" class="dm-pagination__link"><span class="page-number">1</span></a>
-                                    <a href="#" class="dm-pagination__link active"><span
-                                            class="page-number">2</span></a>
-                                    <a href="#" class="dm-pagination__link"><span class="page-number">3</span></a>
-                                    <a href="#" class="dm-pagination__link pagination-control"><span
-                                            class="page-number">...</span></a>
-                                    <a href="#" class="dm-pagination__link"><span class="page-number">12</span></a>
-                                    <a href="#" class="dm-pagination__link pagination-control"><span
-                                            class="la la-angle-right"></span></a>
-                                    <a href="#" class="dm-pagination__option">
-                                    </a>
-                                </li>
-                                <li class="dm-pagination__item">
-                                    <div class="paging-option">
-                                        <select name="page-number" class="page-selection">
-                                            <option value="20">20/page</option>
-                                            <option value="40">40/page</option>
-                                            <option value="60">60/page</option>
-                                        </select>
-                                    </div>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-    {{-- Impresos --}}
-    <div class="row">
-        <div class="col-12 mb-30">
-            <div class="support-ticket-system support-ticket-system--search">
-                <div class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between ">
-                    <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
-                        <div
-                            class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
-                            <h4 class="text-capitalize fw-500 breadcrumb-title">Impresos</h4>
-                        </div>
-                    </div>
-                    <div class="action-btn">
-                        <a href="#" class="btn btn-primary">
-                            Export
-                            <i class="las la-angle-down"></i>
-                        </a>
-                    </div>
-                </div>
-                <div
-                    class="support-form datatable-support-form d-flex justify-content-xxl-between justify-content-center align-items-center flex-wrap">
-                    <div class="support-form__input">
-                        <div class="d-flex flex-wrap">
-                            <div class="support-form__input-id">
-                                <label>Id:</label>
-                                <div class="dm-select ">
-                                    <select name="select-search" class="select-search form-control ">
-                                        <option value="01">All</option>
-                                        <option value="02">Option 2</option>
-                                        <option value="03">Option 3</option>
-                                        <option value="04">Option 4</option>
-                                        <option value="05">Option 5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="support-form__input-status">
-                                <label>status:</label>
-                                <div class="dm-select ">
-                                    <select name="select-search" class="select-search form-control ">
-                                        <option value="01">All</option>
-                                        <option value="02">Option 2</option>
-                                        <option value="03">Option 3</option>
-                                        <option value="04">Option 4</option>
-                                        <option value="05">Option 5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <button class="support-form__input-button">search</button>
-                        </div>
-                    </div>
-                    <div class="support-form__search">
-                        <div class="support-order-search">
-                            <form action="/" class="support-order-search__form">
-                                <img src="{{ asset('assets/img/svg/search.svg') }}" alt="search" class="svg">
-                                <input class="form-control border-0 box-shadow-none" type="search" placeholder="Search"
-                                    aria-label="Search">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1">
-                    <div class="table-responsive">
-                        <table class="table mb-0 table-borderless">
-                            <thead>
-                                <tr class="userDatatable-header">
-                                    <th>
-                                        <span class="userDatatable-title">ID</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Imagen</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Tipo</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Nombre de etiqueta</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Largo</span>
-                                    </th>
-                                    <th>
-                                        <span class="userDatatable-title">Ancho</span>
-                                    </th>
-
-                                    <th class="actions">
-                                        <span class="userDatatable-title">Actions</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="userDatatable-content--priority">
-                                        <a href="https://via.placeholder.com/640x480.png/00aacc?text=possimus" target="_blank">
-                                            <img src="https://via.placeholder.com/640x480.png/00aacc?text=possimus" alt="Imagen" width="100" height="100">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <div class="userDatatable-inline-title">
-                                                <a href="#" class="text-dark fw-500">
-                                                    <h6>Impreso</h6>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                    <td>
-                                        <div class="userDatatable-content--subject">
-                                            nombre
-                                        </div>
-                                    </td>
-
-                                    <td>
-                                        <div class="userDatatable-content--priority">
-                                           36
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="userDatatable-content--priority">
-                                            46
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                                            {{-- <li>
-                                                <a href="#" class="view">
-                                                    <i class="uil uil-setting"></i>
-                                                </a>
-                                            </li> --}}
-                                            <li>
-                                                <a href="{{
-                                                    route('items.show',
-                                                    ['item'=>1,'language'=>app()->getLocale()] ) }}" class="show">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{
-                                                    route('items.edit',
-                                                    ['item'=>1,'language'=>app()->getLocale()] ) }}" class="edit">
-                                                    <i class="uil uil-edit"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-
-
-                                                <a href="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => 1]) }}"
-                                                    onclick="event.preventDefault(); document.getElementById('delete-form').submit();"  class="remove">
-                                                    <i class="uil uil-trash-alt"></i>
-
-                                                 </a>
-
-                                                 <form id="delete-form" action="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => 1]) }}"
-                                                       method="POST" style="display: none;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                 </form>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-
-
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="d-flex justify-content-end pt-30">
-                        <nav class="dm-page ">
-                            <ul class="dm-pagination d-flex">
-                                <li class="dm-pagination__item">
-                                    <a href="#" class="dm-pagination__link pagination-control"><span
-                                            class="la la-angle-left"></span></a>
-                                    <a href="#" class="dm-pagination__link"><span class="page-number">1</span></a>
-                                    <a href="#" class="dm-pagination__link active"><span
-                                            class="page-number">2</span></a>
-                                    <a href="#" class="dm-pagination__link"><span class="page-number">3</span></a>
-                                    <a href="#" class="dm-pagination__link pagination-control"><span
-                                            class="page-number">...</span></a>
-                                    <a href="#" class="dm-pagination__link"><span class="page-number">12</span></a>
-                                    <a href="#" class="dm-pagination__link pagination-control"><span
-                                            class="la la-angle-right"></span></a>
-                                    <a href="#" class="dm-pagination__option">
-                                    </a>
-                                </li>
-                                <li class="dm-pagination__item">
-                                    <div class="paging-option">
-                                        <select name="page-number" class="page-selection">
-                                            <option value="20">20/page</option>
-                                            <option value="40">40/page</option>
-                                            <option value="60">60/page</option>
-                                        </select>
-                                    </div>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
 </div>
+{{--
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 
 <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
 <script>
-    $(document).ready( function () {
+	$(document).ready( function () {
     $('#myTable').DataTable();
 } );
-</script>
+</script> --}}
 @endsection

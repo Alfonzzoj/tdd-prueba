@@ -27,11 +27,11 @@ use App\Http\Livewire\users\Users;
 */
 
 Route::group(['middleware' => 'guest'], function () {
-    Route::get('/', [AuthController::class, 'login'])->name('login');
-    Route::get('/register', [AuthController::class, 'register'])->name('register');
-    Route::get('/forget-password', [AuthController::class, 'forgetPassword'])->name('forget_password');
-    Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
-    Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
+  Route::get('/', [AuthController::class, 'login'])->name('login');
+  Route::get('/register', [AuthController::class, 'register'])->name('register');
+  Route::get('/forget-password', [AuthController::class, 'forgetPassword'])->name('forget_password');
+  Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
+  Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
 });
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
@@ -47,31 +47,31 @@ Route::get('zip_codes', [ZipCodeController::class, 'index'])->name('zip_codes.in
 
 
 Route::group(['prefix' => '{language}'], function () {
-    // ==> Usuarios / Users
-    Route::resource('users', UserController::class)->only(['index', 'edit', 'update', 'show', 'destroy']);
+  // ==> Usuarios / Users
+  Route::resource('users', UserController::class)->only(['index', 'edit', 'update', 'show', 'destroy']);
 
-    // ==> Clientes / Clients
-    Route::resource('clients', ClientController::class);
+  // ==> Clientes / Clients
+  Route::resource('clients', ClientController::class);
 
-    // ==> Empresas / Enterprises
-    Route::resource('enterprises', EnterpriseController::class);
+  // ==> Empresas / Enterprises
+  Route::resource('enterprises', EnterpriseController::class);
 
-    // ==> Items / items
-    Route::resource('items', ItemController::class);
+  // ==> Items / items
+  Route::resource('items', ItemController::class);
 
-    // ==> Metodos de pago / PaymentMethods
-    Route::resource('payment_methods', PaymentMethodController::class);
+  // ==> Metodos de pago / PaymentMethods
+  Route::resource('payment_methods', PaymentMethodController::class);
 
-    // ==> Condiciones de pago / PaymentCondition
-    // ==> Licencias / Licences
-    Route::resource('licences', LicenseController::class);
-    Route::get('licences/items/{license}', [LicenseController::class, 'items'])->name('licences.items');
+  // ==> Condiciones de pago / PaymentCondition
+  // ==> Licencias / Licences
+  Route::resource('licences', LicenseController::class);
+  Route::get('licences/items/{license?}', [LicenseController::class, 'items'])->name('licences.items');
 
 
-    // Route::get('items/{tipo?}', ItemController::class)->name('items.index');
-    // Route::group(['items'=> 'items'],function(){
-    //     // => Tejidas
+  // Route::get('items/{tipo?}', ItemController::class)->name('items.index');
+  // Route::group(['items'=> 'items'],function(){
+  //     // => Tejidas
 
-    // });
+  // });
 
 });

@@ -1,9 +1,7 @@
 <div class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1">
   <div class="table-responsive">
-    <table id="myTable" class="table mb-0 table-borderless">
+    <table class="table mb-0 table-borderless">
       <thead>
-        {{-- TODO: traducir --}}
-
         <tr class="userDatatable-header">
           <th>
             <span class="userDatatable-title">ID</span>
@@ -15,7 +13,7 @@
             <span class="userDatatable-title">Tipo</span>
           </th>
           <th>
-            <span class="userDatatable-title">Nombre etiqueta</span>
+            <span class="userDatatable-title">Nombre de etiqueta</span>
           </th>
           <th>
             <span class="userDatatable-title">Largo</span>
@@ -30,19 +28,19 @@
         </tr>
       </thead>
       <tbody>
-        @forelse ($items as $item)
         <tr>
-          <td>{{ $item->id }}</td>
+          <td>1</td>
           <td class="userDatatable-content--priority">
-            <a href="{{ $item->image_path }}" target="_blank">
-              <img src="{{ $item->image_path }}" alt="Imagen" width="100" height="100">
+            <a href="https://via.placeholder.com/640x480.png/00aacc?text=possimus" target="_blank">
+              <img src="https://via.placeholder.com/640x480.png/00aacc?text=possimus" alt="Imagen" width="100"
+                height="100">
             </a>
           </td>
           <td>
             <div class="d-flex">
               <div class="userDatatable-inline-title">
                 <a href="#" class="text-dark fw-500">
-                  <h6>{{ $item->tipo_etiqueta }}</h6>
+                  <h6>Tejida</h6>
                 </a>
               </div>
             </div>
@@ -50,18 +48,18 @@
 
           <td>
             <div class="userDatatable-content--subject">
-              {{ $item->nombre_etiqueta }}
+              nombre
             </div>
           </td>
 
           <td>
             <div class="userDatatable-content--priority">
-              {{ $item->largo }}
+              36
             </div>
           </td>
           <td>
             <div class="userDatatable-content--priority">
-              {{ $item->ancho }}
+              46
             </div>
           </td>
           <td>
@@ -73,31 +71,30 @@
               </li> --}}
               <li>
                 <a href="{{
-                                    route('items.show',
-                                    ['item'=>$item->id,'language'=>app()->getLocale(),'tipo'=>$tipo] ) }}"
-                  class="show">
+                                            route('items.show',
+                                            ['item'=>1,'language'=>app()->getLocale()] ) }}" class="show">
                   <i class="fas fa-eye"></i>
                 </a>
               </li>
               <li>
                 <a href="{{
-                                    route('items.edit',
-                                    ['item'=>$item->id,'language'=>app()->getLocale()] ) }}" class="edit">
+                                            route('items.edit',
+                                            ['item'=>1,'language'=>app()->getLocale()] ) }}" class="edit">
                   <i class="uil uil-edit"></i>
                 </a>
               </li>
               <li>
 
 
-                <a href="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => $item->id]) }}"
+                <a href="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => 1]) }}"
                   onclick="event.preventDefault(); document.getElementById('delete-form').submit();" class="remove">
                   <i class="uil uil-trash-alt"></i>
 
                 </a>
 
                 <form id="delete-form"
-                  action="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => $item->id]) }}"
-                  method="POST" style="display: none;">
+                  action="{{ route('items.destroy', ['language' => app()->getLocale(), 'item' => 1]) }}" method="POST"
+                  style="display: none;">
                   @csrf
                   @method('DELETE')
                 </form>
@@ -106,16 +103,11 @@
           </td>
         </tr>
 
-        @empty
-        <tr>
-          No info
-        </tr>
-        @endforelse
 
       </tbody>
     </table>
   </div>
-  {{-- <div class="d-flex justify-content-end pt-30">
+  <div class="d-flex justify-content-end pt-30">
     <nav class="dm-page ">
       <ul class="dm-pagination d-flex">
         <li class="dm-pagination__item">
@@ -140,5 +132,5 @@
         </li>
       </ul>
     </nav>
-  </div> --}}
+  </div>
 </div>
