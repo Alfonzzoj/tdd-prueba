@@ -29,6 +29,18 @@
 
     </li>
     @endcan {{-- end clients index --}}
+    {{-- Clientes perfil de cliente --}}
+    <li>
+      <a href="{{
+        route('clients.show',
+        ['client'=>1,'language'=>app()->getLocale()] ) }}"
+        class="{{  Request::is(app()->getLocale().'/clients/*') ? 'active':'' }}">
+        <span class="nav-icon uil uil-users-alt"></span>
+        <span class="menu-text">Cliente</span>
+        {{-- <span class="toggle-icon"></span> --}}
+      </a>
+
+    </li>
     @endcan {{-- end clients --}}
 
     @can('control')

@@ -11,8 +11,8 @@ class ClientsIndex extends Component
 
   use WithPagination;
   public $search;
-  public $sort;
-  public $direction;
+  public $sort = 'id';
+  public $direction = 'asc';
 
   public function updatingSearch()
   {
@@ -21,15 +21,22 @@ class ClientsIndex extends Component
   public function render()
   {
     $clients = Client::where('razon_social', 'LIKE', '%' . $this->search . '%')
-      ->orWhere('rfc', 'LIKE', '%' . $this->search . '%')->paginate();
+      ->orWhere('rfc', 'LIKE', '%' . $this->search . '%')
+      ->orderBy($this->sort, $this->direction)
+      ->paginate();
     return view('livewire.clients.clients-index', compact('clients'));
   }
   // Ordenar porcolumna
-  public function order()
+  public function order($sort)
   {
-    if ($this->direction == 'asc') {
-      $this->direction = 'desc';
+    if ($this->sort == $sort) {
+      if ($this->direction == 'asc') {
+        $this->direction = 'desc';
+      } else {
+        $this->direction = 'asc';
+      }
     } else {
+      $this->sort = $sort;
       $this->direction = 'asc';
     }
   }

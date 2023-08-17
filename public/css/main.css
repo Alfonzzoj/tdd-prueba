@@ -2,3 +2,95 @@
 .nav-item.spaced{
     padding: 0 2rem;
 }
+
+.drawer-basic-wrap2.show .dm-drawer {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+.drawer-basic-wrap2.basic .drawer-basic {
+  display: block !important;
+}
+.drawer-basic-wrap2.account.bottom,
+.drawer-basic-wrap2.account.left,
+.drawer-basic-wrap2.account.top {
+  left: 0;
+  right: auto;
+}
+.drawer-basic-wrap2.account.bottom .dm-drawer,
+.drawer-basic-wrap2.account.left .dm-drawer,
+.drawer-basic-wrap2.account.top .dm-drawer {
+  width: 570px;
+  height: 100%;
+  -webkit-transform: translateX(-570px);
+  -ms-transform: translateX(-570px);
+  transform: translateX(-570px);
+}
+.drawer-basic-wrap2.account .drawer-account {
+  display: block !important;
+  width: 730px;
+}
+.drawer-basic-wrap2.profile.bottom,
+.drawer-basic-wrap2.profile.left,
+.drawer-basic-wrap2.profile.top {
+  left: 0;
+  right: auto;
+}
+.drawer-basic-wrap2.profile.bottom .dm-drawer,
+.drawer-basic-wrap2.profile.left .dm-drawer,
+.drawer-basic-wrap2.profile.top .dm-drawer {
+  width: 570px;
+  height: 100%;
+  -webkit-transform: translateX(-570px);
+  -ms-transform: translateX(-570px);
+  transform: translateX(-570px);
+}
+.drawer-basic-wrap2.profile .drawer-profile {
+  display: block !important;
+  width: 730px;
+}
+.drawer-placement-wrap .radio-horizontal-list {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+.drawer-basic-wrap2.left.show .dm-drawer {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+.drawer-basic-wrap2.left .dm-drawer {
+  left: auto;
+  right: 0;
+  -webkit-transform: translateX(320px);
+  -ms-transform: translateX(320px);
+  transform: translateX(320px);
+}
+.drawer-basic-wrap2.top.show .dm-drawer {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.drawer-basic-wrap2.top .dm-drawer {
+  height: 320px;
+  width: 100%;
+  -webkit-transform: translate(0, -320px);
+  -ms-transform: translate(0, -320px);
+  transform: translate(0, -320px);
+}
+.drawer-basic-wrap2.bottom.show .dm-drawer {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.drawer-basic-wrap2.bottom .dm-drawer {
+  height: 320px;
+  width: 100%;
+  top: auto;
+  bottom: 0;
+  -webkit-transform: translate(0, 320px);
+  -ms-transform: translate(0, 320px);
+  transform: translate(0, 320px);
+}

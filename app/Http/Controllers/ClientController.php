@@ -18,7 +18,7 @@ class ClientController extends Controller
    */
   // Parametros Por default
   protected $title = 'Clientes';
-  protected $description = 'Clientes management';
+  protected $description = 'Control de Clientes ';
 
 
 
@@ -27,12 +27,8 @@ class ClientController extends Controller
   {
     $title = $this->title;
     $description = $this->description;
-    $clients = Client::with(['deliveryZones', 'enterprise'])->get();
 
-    // Enterprises
-
-    // dd($clients);
-    return view('clients.index', compact('title', 'description', 'clients'));
+    return view('clients.index', compact('title', 'description'));
   }
 
   /**
@@ -82,7 +78,7 @@ class ClientController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function show($language, $id)
+  public function show($language, $id = 1)
   {
     $title = $this->title;
     $description = $this->description;

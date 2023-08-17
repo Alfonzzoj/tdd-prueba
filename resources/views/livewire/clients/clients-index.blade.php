@@ -48,15 +48,45 @@
     <div class="table-responsive">
       <table class="table mb-0 table-borderless">
         <thead>
-          <tr class="userDatatable-header cursor-pointer">
-            <th>
+          <tr class="userDatatable-header ">
+            <th class="w-24" wire:click="order('id')">
               <span class="userDatatable-title">ID</span>
+              {{-- Sort --}}
+              @if ($sort=='id')
+              @if ($direction=='asc')
+              <span class="fas fa-sort-alpha-up-alt float-right mt-1"></span>
+              @else
+              <span class="fas fa-sort-alpha-down-alt float-right mt-1"></span>
+              @endif
+              @else
+              <i class="fas fa-sort float-right mt-1"></i>
+              @endif
             </th>
-            <th>
+            <th wire:click="order('razon_social')">
               <span class="userDatatable-title">Razon Social</span>
+              {{-- Sort --}}
+              @if ($sort=='razon_social')
+              @if ($direction=='asc')
+              <span class="fas fa-sort-alpha-up-alt float-right mt-1"></span>
+              @else
+              <span class="fas fa-sort-alpha-down-alt float-right mt-1"></span>
+              @endif
+              @else
+              <i class="fas fa-sort float-right mt-1"></i>
+              @endif
             </th>
-            <th>
+            <th wire:click="order('rfc')">
               <span class="userDatatable-title">RFC</span>
+              {{-- Sort --}}
+              @if ($sort=='rfc')
+              @if ($direction=='asc')
+              <span class="fas fa-sort-alpha-up-alt float-right mt-1"></span>
+              @else
+              <span class="fas fa-sort-alpha-down-alt float-right mt-1"></span>
+              @endif
+              @else
+              <i class="fas fa-sort float-right mt-1"></i>
+              @endif
             </th>
             <th>
               <span class="userDatatable-title">Dirección</span>
