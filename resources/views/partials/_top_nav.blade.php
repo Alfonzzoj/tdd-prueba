@@ -2,8 +2,8 @@
   <div class="navbar-left">
     <div class="logo-area">
       <a class="navbar-brand" href="{{ route('dashboard.demo_one',app()->getLocale()) }}">
-        <img class="dark" src="{{ asset('assets/img/logo-dark.svg') }}" alt="svg">
-        <img class="light" src="{{ asset('assets/img/logo-white.svg') }}" alt="img">
+        <img class="dark" src="{{ asset('assets/img/logo-altima.png') }}" alt="svg">
+        <img class="light" src="{{ asset('assets/img/logo-altima.png') }}" alt="img">
       </a>
       <a href="#" class="sidebar-toggle">
         <img class="svg" src="{{ asset('assets/img/svg/align-center-alt.svg') }}" alt="img"></a>

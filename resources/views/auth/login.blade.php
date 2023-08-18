@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{ $title }} - HexaDash</title>
+  <title>{{ $title }} - Altima</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('assets/css/plugin.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}">
@@ -22,13 +22,13 @@
           <div class="col-xxl-3 col-xl-4 col-md-6 col-sm-8">
             <div class="edit-profile">
               <div class="edit-profile__logos">
-                <img class="dark" src="{{ asset('assets/img/logo-dark.png') }}" alt="">
-                <img class="light" src="{{ asset('assets/img/logo-white.png') }}" alt="">
+                <img class="dark" src="{{ asset('assets/img/logo-altima.png') }}" alt="">
+                <img class="light" src="{{ asset('assets/img/logo-altima.png') }}" alt="">
               </div>
-              <div class="card border-0">
+              <div class="card border-0 shadow-2x1">
                 <div class="card-header">
                   <div class="edit-profile__title">
-                    <h6>Sign in HexaDash</h6>
+                    <h6>Iniciar sesion en altima</h6>
                   </div>
                 </div>
                 <div class="card-body">
@@ -37,17 +37,17 @@
                     <div class="edit-profile__body">
                       <div class="form-group mb-20">
                         <label for="email">Correo electronico</label>
-                        <input type="text" class="form-control" id="email" name="email" value="admin@gmail.com"
-                          placeholder="Email address">
+                        <input type="text" class="form-control" id="email" name="email" value=""
+                          placeholder="Ingrese correo electronico">
                         @if($errors->has('email'))
                         <p class="text-danger">{{$errors->first('email')}}</p>
                         @endif
                       </div>
                       <div class="form-group mb-15">
-                        <label for="password-field">password</label>
+                        <label for="password-field">Contraseña</label>
                         <div class="position-relative">
                           <input id="password-field" type="password" class="form-control" name="password"
-                            placeholder="Password" value="admin">
+                            placeholder="Ingrese su contraseña" value="">
                           <span toggle="#password-field"
                             class="uil uil-eye-slash text-lighten fs-15 field-icon toggle-password2"></span>
                         </div>
@@ -59,22 +59,22 @@
                         <div class="checkbox-theme-default custom-checkbox ">
                           <input class="checkbox" type="checkbox" id="check-1">
                           <label for="check-1">
-                            <span class="checkbox-text">Keep me logged in</span>
+                            <span class="checkbox-text">Mantener sesion iniciada</span>
                           </label>
                         </div>
-                        <a href="{{ route('forget_password') }}">forget password?</a>
+                        <a href="{{ route('forget_password') }}">¿Olvido la contraseña?</a>
                       </div>
                       <div
                         class="admin__button-group button-group d-flex pt-1 justify-content-md-start justify-content-center">
                         <button
                           class="btn btn-primary btn-default w-100 btn-squared text-capitalize lh-normal px-50 signIn-createBtn ">
-                          sign in
+                          Iniciar sesion
                         </button>
                       </div>
                     </div>
                   </form>
                 </div>
-                <div class="px-20">
+                {{-- <div class="px-20">
                   <p class="social-connector social-connector__admin text-center">
                     <span>Or</span>
                   </p>
@@ -102,15 +102,15 @@
                       </li>
                     </ul>
                   </div>
-                </div>
-                <div class="admin-topbar">
+                </div> --}}
+                {{-- <div class="admin-topbar">
                   <p class="mb-0">
                     Don't have an account?
                     <a href="{{ route('register') }}" class="color-primary">
                       Sign up
                     </a>
                   </p>
-                </div>
+                </div> --}}
               </div>
             </div>
           </div>
