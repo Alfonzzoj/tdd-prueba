@@ -9,6 +9,6 @@ deploy_production:
     - chmod 700 ~/.ssh
     - ssh-keyscan $SSH_SERVER >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
-    - sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_SERVER "cd  git pull origin master"
+    - sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_SERVER "git pull origin master"
   only:
     - master
