@@ -184,7 +184,6 @@
                 <div class="drawer-btn d-flex justify-content-center">
 
                   <div>
-                    {{-- @livewire('clients.create-delivery-zone') --}}
                     <button class="btn btn-primary btn-default btn-squared drawer-trigger" data-drawer="account">Crear
                     </button>
                   </div>
@@ -233,7 +232,16 @@
 
 
 
-          @livewire('clients.create-delivery-zone-and-contacts')
+          {{-- wrapper de drawers --}}
+          <div class="drawer-basic-wrap">
+
+            @include('clients.partials.create.drawers.delivery-zone')
+
+            @include('clients.partials.create.drawers.contacts')
+          </div>
+
+          <div class="overlay-dark  "></div>
+          <div class="overlay-dark-l2"></div>
 
 
 
