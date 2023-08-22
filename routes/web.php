@@ -52,6 +52,9 @@ Route::group(['prefix' => '{language}'], function () {
 
   // ==> Clientes / Clients
   Route::resource('clients', ClientController::class);
+  Route::get('clients/{client}/items', [ClientController::class, 'items'])->name('clients.items');
+  Route::get('clients/{client}/orders', [ClientController::class, 'orders'])->name('clients.orders');
+  Route::get('clients/{client}/balance', [ClientController::class, 'balance'])->name('clients.balance');
 
   // ==> Empresas / Enterprises
   Route::resource('enterprises', EnterpriseController::class);

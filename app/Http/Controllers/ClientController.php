@@ -137,4 +137,34 @@ class ClientController extends Controller
     $client->delete();
     return redirect()->route('clients.index', ['language' => $language]);
   }
+
+  public function items($language, $client_id)
+  {
+    $title = $this->title;
+    $description = $this->description;
+    // $client = Client::with(['items'])->find($client_id);
+    $client = Client::find($client_id);
+    // dd($client->items);
+    return view('clients.items', compact('title', 'description', 'client'));
+  }
+
+  public function balance($language, $client_id)
+  {
+    $title = $this->title;
+    $description = $this->description;
+    $client = Client::find($client_id);
+    // dd($client->items);
+    // return 1;
+    return view('clients.account-statements', compact('title', 'description', 'client'));
+  }
+
+  public function orders($language, $client_id)
+  {
+    $title = $this->title;
+    $description = $this->description;
+    $client = Client::find($client_id);
+    // dd($client->items);
+    // return 1;
+    return view('clients.orders', compact('title', 'description', 'client'));
+  }
 }

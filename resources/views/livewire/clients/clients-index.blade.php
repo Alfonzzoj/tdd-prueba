@@ -135,15 +135,20 @@
 
                 <li>
                   {{-- Items --}}
-                  @include('items.partials.action-btn.modals.items',['id'=>$client->id])
+                  {{-- @include('items.partials.action-btn.modals.items',['id'=>$client->id]) --}}
+                  @include('items.partials.action-btn.client-items',['id'=>$client->id])
                 </li>
                 <li>
                   {{-- Estados de cuenta --}}
-                  @include('account_statements.partials.action-btn.modals.account-statements',['id'=>$client->id])
+                  {{-- @include('account_statements.partials.action-btn.modals.account-statements',['id'=>$client->id])
+                  --}}
+
+                  @include('account_statements.partials.action-btn.client-account-statements',['id'=>$client->id])
                 </li>
                 <li>
                   {{-- Pedidos --}}
-                  @include('orders.partials.action-btn.modals.orders',['id'=>$client->id])
+                  {{-- @include('orders.partials.action-btn.modals.orders',['id'=>$client->id]) --}}
+                  @include('orders.partials.action-btn.client-orders',['id'=>$client->id])
                 </li>
 
                 <li>
