@@ -1,14 +1,14 @@
-stages:
-  - deploy
+# stages:
+#   - deploy
 
-deploy_production:
-  stage: deploy
-  script:
-    # - "which sshpass || ( apt-get update -y && apt-get install sshpass -y )"
-    # - mkdir -p ~/.ssh
-    # - chmod 700 ~/.ssh
-    # - ssh-keyscan $SSH_SERVER >> ~/.ssh/known_hosts
-    # - chmod 644 ~/.ssh/known_hosts
-    # - sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_SERVER "git pull origin master"
-  only:
-    - master
+# deploy_production:
+#   stage: deploy
+#   script:
+#     # - "which sshpass || ( apt-get update -y && apt-get install sshpass -y )"
+#     # - mkdir -p ~/.ssh
+#     # - chmod 700 ~/.ssh
+#     # - ssh-keyscan $SSH_SERVER >> ~/.ssh/known_hosts
+#     # - chmod 644 ~/.ssh/known_hosts
+#     # - sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_SERVER "git pull origin master"
+#   only:
+#     - master
