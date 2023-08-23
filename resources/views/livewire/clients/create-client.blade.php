@@ -383,13 +383,14 @@
                       </div>
                     </div>
                   </div>
-                  {{-- precioo --}}
+                  {{-- Factor porcentual de precio --}}
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="nombre_etiqueta" class="il-gray fs-14 fw-500 align-center mb-10">Precio</label>
-                      <input type="number" min="0" step="1" name="precio"
-                        class="form-control ih-medium ip-light radius-xs b-light px-15" id="precio"
-                        placeholder="Ingrese precio" required>
+                      <label for="nombre_etiqueta" class="il-gray fs-14 fw-500 align-center mb-10">Factor porcentual de
+                        precio</label>
+                      <input type="number" min="0" step="1" name="factor_porcentual"
+                        class="form-control ih-medium ip-light radius-xs b-light px-15" id="factor_porcentual"
+                        placeholder="Ingrese factor para cliente" required>
                     </div>
                   </div>
                   {{-- Dias pago --}}
