@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Str;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -34,6 +35,11 @@ class AppServiceProvider extends ServiceProvider
     // Mostrar fechas en formato d/m/y
     Blade::directive('date', function ($date) {
       return "<?php echo date('d/m/Y', strtotime($date)); ?>";
+    });
+
+
+    Blade::directive('short_text', function ($string) {
+      return "<?php echo Str::limit($string, 50); ?>";
     });
   }
 }

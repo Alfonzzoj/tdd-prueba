@@ -75,6 +75,7 @@ Route::group(['prefix' => '{language}'], function () {
   Route::get('licences/items/{license?}', [LicenseController::class, 'items'])->name('licences.items');
 
   // ==> Pedidos / Orders
+  Route::resource('orders', OrderController::class);
 
   // ==> Estados de cuenta / account statement
   Route::resource('account_statements', AccountStatementController::class);

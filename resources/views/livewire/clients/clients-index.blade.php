@@ -122,7 +122,8 @@
 
             <td>
               <div>
-                {{ \Illuminate\Support\Str::limit($client->enterprise->direccion, 50) }} </div>
+                @short_text($client->enterprise->direccion)
+                {{-- {{ \Illuminate\Support\Str::limit($client->enterprise->direccion, 50) }} </div> --}}
             </td>
             <td>
               <div>

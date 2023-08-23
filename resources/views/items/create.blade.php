@@ -89,7 +89,7 @@
         @elseif($tipo === 'Transfers')
         @include('items.partials.create.transfer')
         @else
-        ?
+        "Tipo no definido"
         @endif
         {{-- end Informacion segun tipo de item --}}
 

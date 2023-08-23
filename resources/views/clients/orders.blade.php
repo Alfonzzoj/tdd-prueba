@@ -80,21 +80,32 @@
                           <td>TEJIDA 1</td>
                           <td>Activo</td>
                           <td>Etiqueta 1</td>
-                          <td> </td>
+                          <td>
+                            @include('orders.partials.action-btn.show',['id'=>1])
+                          </td>
                         </tr>
                         <tr>
                           <td>TE23-2134</td>
                           <td>TEJIDA 2</td>
                           <td>Inactivo</td>
                           <td>Etiqueta 2</td>
-                          <td> </td>
+                          <td>
+
+                            @include('orders.partials.action-btn.show',['id'=>1])
+
+
+                          </td>
                         </tr>
                         <tr>
                           <td>TE23-2135</td>
                           <td>TEJIDA 3</td>
                           <td>Descontinuado</td>
                           <td>Etiqueta 3</td>
-                          <td> </td>
+                          <td>
+                            @include('orders.partials.action-btn.show',['id'=>1])
+
+
+                          </td>
                         </tr>
                       </tbody>
                     </table>
