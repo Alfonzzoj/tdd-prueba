@@ -41,6 +41,16 @@
       </a>
 
     </li>
+    {{-- Estados de cuenta --}}
+    <li>
+      <a href="{{ route('account_statements.index',app()->getLocale()) }}"
+        class="{{ Request::is(app()->getLocale().'/account_statements') || Request::is(app()->getLocale().'/account_statements/*') ? 'active':'' }}">
+        <span class="nav-icon uil uil-users-alt"></span>
+        <span class="menu-text">Estados de cuenta</span>
+        {{-- <span class="toggle-icon"></span> --}}
+      </a>
+
+    </li>
     @endcan {{-- end clients --}}
 
     @can('control')

@@ -100,20 +100,33 @@
               <h6>Detalles adicionales</h6>
             </div>
             <div class="card-body py-md-25">
-              {{-- Tipo de Tejido --}}
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="estado" class="il-gray fs-14 fw-500 align-center mb-10">Estado</label>
-                  <div class="w-full">
-                    <div class="dm-select ">
-                      <select name="estado" id="estado" class="form-control ih-medium ip-light radius-xs b-light px-15">
-                        <option value="01">Seleccione alguna opcion </option>
-                        <option value="01">Activo</option>
-                        <option value="02">Descontinuado</option>
-                      </select>
+              <div class="row">
+                {{-- Tipo de Tejido --}}
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="estado" class="il-gray fs-14 fw-500 align-center mb-10">Estado</label>
+                    <div class="w-full">
+                      <div class="dm-select ">
+                        <select name="estado" id="estado"
+                          class="form-control ih-medium ip-light radius-xs b-light px-15">
+                          <option value="01">Seleccione alguna opcion </option>
+                          <option value="01">Activo</option>
+                          <option value="02">Descontinuado</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
                 </div>
+                {{-- precioo --}}
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="nombre_etiqueta" class="il-gray fs-14 fw-500 align-center mb-10">Precio</label>
+                    <input type="number" min="0" step="1" name="precio"
+                      class="form-control ih-medium ip-light radius-xs b-light px-15" id="precio"
+                      placeholder="Ingrese precio" required>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>

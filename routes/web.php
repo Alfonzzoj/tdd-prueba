@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountStatementController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
@@ -56,6 +57,7 @@ Route::group(['prefix' => '{language}'], function () {
   Route::get('clients/{client}/orders', [ClientController::class, 'orders'])->name('clients.orders');
   Route::get('clients/{client}/balance', [ClientController::class, 'balance'])->name('clients.balance');
 
+
   // ==> Empresas / Enterprises
   Route::resource('enterprises', EnterpriseController::class);
 
@@ -66,9 +68,16 @@ Route::group(['prefix' => '{language}'], function () {
   Route::resource('payment_methods', PaymentMethodController::class);
 
   // ==> Condiciones de pago / PaymentCondition
+  // TODO: Rutas
+
   // ==> Licencias / Licences
   Route::resource('licences', LicenseController::class);
   Route::get('licences/items/{license?}', [LicenseController::class, 'items'])->name('licences.items');
+
+  // ==> Pedidos / Orders
+
+  // ==> Estados de cuenta / account statement
+  Route::resource('account_statements', AccountStatementController::class);
 
 
   // Route::get('items/{tipo?}', ItemController::class)->name('items.index');

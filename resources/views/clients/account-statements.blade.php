@@ -134,20 +134,23 @@
                           <td>$50.00</td>
                           <td>$50.00</td>
                           <td>
-                            <a href="#" class="btn btn-xs btn-success mb-1 ">
-                              <i class="fas fa-money-bill" title="Pagar"></i>
-
-                            </a>
-                            <a href="#" class="btn btn-xs btn-info  mb-1">
-                              <i class="fas fa-file-archive" title="Adjuntar comprobante"></i>
-
-                            </a>
-                            <a href="#" class="btn btn-xs btn-dark  mb-1 ">
-                              <i class="fas fa-download" title="Descargar comprobante"></i>
-
-                            </a>
-
-
+                            <ul class="d-flex flex-wrap ">
+                              <li>
+                                <a href="#" class="btn btn-xs btn-success mb-1 me-1 ">
+                                  <i class="fas fa-money-bill  p-0 m-0" title="Pagar"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#" class="btn btn-xs btn-info  mb-1 me-1">
+                                  <i class="fas fa-file-archive  p-0 m-0" title="Adjuntar comprobante"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#" class="btn btn-xs btn-dark  mb-1 me-1 ">
+                                  <i class="fas fa-download p-0 m-0" title="Descargar comprobante"></i>
+                                </a>
+                              </li>
+                            </ul>
                           </td>
                         </tr>
                         <tr>
@@ -157,7 +160,25 @@
                           <td>$200.00</td>
                           <td>$100.00</td>
                           <td>$100.00</td>
-                          <td>Acciones</td>
+                          <td>
+                            <ul class="d-flex flex-wrap ">
+                              <li>
+                                <a href="#" class="btn btn-xs btn-success mb-1 me-1 ">
+                                  <i class="fas fa-money-bill  p-0 m-0" title="Pagar"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#" class="btn btn-xs btn-info  mb-1 me-1">
+                                  <i class="fas fa-file-archive  p-0 m-0" title="Adjuntar comprobante"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#" class="btn btn-xs btn-dark  mb-1 me-1 ">
+                                  <i class="fas fa-download p-0 m-0" title="Descargar comprobante"></i>
+                                </a>
+                              </li>
+                            </ul>
+                          </td>
                         </tr>
                         <!-- Agrega más filas de ejemplo según sea necesario -->
                       </tbody>
