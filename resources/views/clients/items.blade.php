@@ -55,199 +55,155 @@
             </a> --}}
           </div>
         </div>
+        <div
+          class="support-form datatable-support-form d-flex justify-content-xxl-between justify-content-center align-items-center flex-wrap">
+          <div class="support-form__input">
+            <div class="d-flex flex-wrap">
+              <div class="support-form__input-status">
+                <label>Tipo cliente </label>
+                <div class="dm-select ">
+                  <select name="select-search" class="select-search form-control ">
+                    <option value="02">Todos</option>
+                    <option value="01">Cliente</option>
+                    <option value="02">Licencia</option>
+                  </select>
+                </div>
+              </div>
+              <div class="support-form__input-status">
+                <label>Tipo etiqueta</label>
+                <div class="dm-select ">
+                  <select name="select-search" class="select-search form-control ">
+                    <option value="01">Todos</option>
+                    <option value="02">Tejida</option>
+                    <option value="03">Estampada</option>
+                    <option value="05">Transfer</option>
+                    <option value="04">Impresa</option>
+                    <option value="04">Impreso</option>
+                  </select>
+                </div>
+              </div>
+              <button class="support-form__input-button">Buscar</button>
+            </div>
+          </div>
+          <div class="support-form__search">
+            <div class="support-order-search">
+              <form action="/" class="support-order-search__form">
+                <img src="{{ asset('assets/img/svg/search.svg') }}" alt="search" class="svg">
+                <input class="form-control border-0 box-shadow-none" type="search" placeholder="Buscar"
+                  aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
 
         <div class="container">
 
-          <div class="dm-tab tab-horizontal">
-            <ul class="nav nav-tabs vertical-tabs d-flex justify-evenly" role="tablist">
-              <li class="nav-item spaced">
-                <a class="nav-link active" id="tab-items-1-tab" data-bs-toggle="tab" href="#tab-items-1" role="tab"
-                  aria-selected="true">Cliente</a>
-              </li>
-              <li class="nav-item spaced">
-                <a class="nav-link" id="tab-items-2-tab" data-bs-toggle="tab" href="#tab-items-2" role="tab"
-                  aria-selected="false">Licencia</a>
-              </li>
-            </ul>
-            <div class="tab-content">
+
+          <div class="col">
+            <table id="dt-pedidos" class="table table-bordered table-striped">
+              <thead class="thead-primary">
+                <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">Imagen</th>
+                  <th scope="col">Tipo Cliente</th>
+                  <th scope="col">Tipo Etiqueta</th>
+                  <th scope="col">Nombre de la etiqueta</th>
+                  <th scope="col">ACCIONES</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td class="userDatatable-content--priority">
+                    <a href="{{ $item->image_path ?? 'https://via.placeholder.com/640x480.png/008899?text=aut' }}"
+                      target="_blank">
+                      <img src="{{ $item->image_path ?? 'https://via.placeholder.com/640x480.png/008899?text=aut' }}"
+                        alt="Imagen" width="100" height="100">
+                    </a>
+                  </td>
+                  <td>Cliente</td>
+                  <td>Tejida</td>
+                  <td>Clave 1</td>
+                  <td>
+                    <ul class="orderDatatable_actions mb-0 d-flex flex-wrap justify-center items-center">
+
+                      <li>
+                        @include('items.partials.action-btn.generate-order')
+                      </li>
+                      <li>
+                        @include('items.partials.action-btn.show')
+                      </li>
 
 
+                      <li>
+                        @include('items.partials.action-btn.edit')
+
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td class="userDatatable-content--priority">
+                    <a href="{{ $item->image_path ?? 'https://via.placeholder.com/640x480.png/008899?text=aut' }}"
+                      target="_blank">
+                      <img src="{{ $item->image_path ?? 'https://via.placeholder.com/640x480.png/008899?text=aut' }}"
+                        alt="Imagen" width="100" height="100">
+                    </a>
+                  </td>
+                  <td>Cliente</td>
+                  <td>Impresa</td>
+                  <td>Clave 2</td>
+                  <td>
+                    <ul class="orderDatatable_actions mb-0 d-flex flex-wrap justify-center items-center">
+
+                      <li>
+                        @include('items.partials.action-btn.generate-order')
+                      </li>
+                      <li>
+                        @include('items.partials.action-btn.show')
+                      </li>
 
 
-              {{-- Tab CLIENTE --}}
-              <div class="tab-pane fade show active" id="tab-items-1" role="tabpanel" aria-labelledby="tab-items-1-tab">
+                      <li>
+                        @include('items.partials.action-btn.edit')
 
-                <div class="col">
-                  <table id="dt-pedidos" class="table table-bordered table-striped">
-                    <thead class="thead-primary">
-                      <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">Tipo Cliente</th>
-                        <th scope="col">Tipo Etiqueta</th>
-                        <th scope="col">Nombre de la etiqueta</th>
-                        <th scope="col">ACCIONES</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Cliente</td>
-                        <td>Tejida</td>
-                        <td>Clave 1</td>
-                        <td>
-                          <ul class="orderDatatable_actions mb-0 d-flex flex-wrap justify-center items-center">
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td class="userDatatable-content--priority">
+                    <a href="{{ $item->image_path ?? 'https://via.placeholder.com/640x480.png/008899?text=aut' }}"
+                      target="_blank">
+                      <img src="{{ $item->image_path ?? 'https://via.placeholder.com/640x480.png/008899?text=aut' }}"
+                        alt="Imagen" width="100" height="100">
+                    </a>
+                  </td>
+                  <td>Cliente</td>
+                  <td>Estampada</td>
+                  <td>clave 3</td>
+                  <td>
+                    <ul class="orderDatatable_actions mb-0 d-flex flex-wrap justify-center items-center">
 
-                            <li>
-                              @include('items.partials.action-btn.generate-order')
-                            </li>
-                            <li>
-                              @include('items.partials.action-btn.show')
-                            </li>
-
-
-                            <li>
-                              @include('items.partials.action-btn.edit')
-
-                            </li>
-                          </ul>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Cliente</td>
-                        <td>Impresa</td>
-                        <td>Clave 2</td>
-                        <td>
-                          <ul class="orderDatatable_actions mb-0 d-flex flex-wrap justify-center items-center">
-
-                            <li>
-                              @include('items.partials.action-btn.generate-order')
-                            </li>
-                            <li>
-                              @include('items.partials.action-btn.show')
-                            </li>
+                      <li>
+                        @include('items.partials.action-btn.generate-order')
+                      </li>
+                      <li>
+                        @include('items.partials.action-btn.show')
+                      </li>
 
 
-                            <li>
-                              @include('items.partials.action-btn.edit')
+                      <li>
+                        @include('items.partials.action-btn.edit')
 
-                            </li>
-                          </ul>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Cliente</td>
-                        <td>Estampada</td>
-                        <td>clave 3</td>
-                        <td>
-                          <ul class="orderDatatable_actions mb-0 d-flex flex-wrap justify-center items-center">
-
-                            <li>
-                              @include('items.partials.action-btn.generate-order')
-                            </li>
-                            <li>
-                              @include('items.partials.action-btn.show')
-                            </li>
-
-
-                            <li>
-                              @include('items.partials.action-btn.edit')
-
-                            </li>
-                          </ul>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              {{-- Tab LICENCIA --}}
-              <div class="tab-pane fade" id="tab-items-2" role="tabpanel" aria-labelledby="tab-items-2-tab">
-                <div class="col">
-                  <table id="dt-pedidos" class="table table-bordered table-striped">
-                    <thead class="thead-primary">
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Tipo Cliente</th>
-                        <th scope="col">Tipo Etiqueta</th>
-                        <th scope="col">Nombre de la etiqueta</th>
-                        <th scope="col">ACCIONES</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Licencia</td>
-                        <td>Tejida</td>
-                        <td>Clave 1</td>
-                        <td>
-                          <ul class="orderDatatable_actions mb-0 d-flex flex-wrap justify-center items-center">
-
-                            <li>
-                              @include('items.partials.action-btn.generate-order')
-                            </li>
-                            <li>
-                              @include('items.partials.action-btn.show')
-                            </li>
-
-
-                            <li>
-                              @include('items.partials.action-btn.edit')
-
-                            </li>
-                          </ul>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Licencia</td>
-                        <td>Impresa</td>
-                        <td>Clave 2</td>
-                        <td>
-                          <ul class="orderDatatable_actions mb-0 d-flex flex-wrap justify-center items-center">
-
-                            <li>
-                              @include('items.partials.action-btn.generate-order')
-                            </li>
-                            <li>
-                              @include('items.partials.action-btn.show')
-                            </li>
-
-
-                            <li>
-                              @include('items.partials.action-btn.edit')
-
-                            </li>
-                          </ul>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Licencia</td>
-                        <td>Estampada</td>
-                        <td>clave 3</td>
-                        <td>
-                          <ul class="orderDatatable_actions mb-0 d-flex flex-wrap justify-center items-center">
-                            <li>
-                              @include('items.partials.action-btn.generate-order')
-                            </li>
-                            <li>
-                              @include('items.partials.action-btn.show')
-                            </li>
-                            <li>
-                              @include('items.partials.action-btn.edit')
-                            </li>
-                          </ul>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-
-            </div>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

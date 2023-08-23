@@ -32,6 +32,9 @@
         listado</a>
     </div>
   </div>
+  <div class="row">
+
+  </div>
 
   {{-- Main Content --}}
   <div class="row">
@@ -41,7 +44,7 @@
           <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
             <div class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
               {{-- TODO: traducir --}}
-              <h4 class="text-capitalize fw-500 breadcrumb-title">Informacion de Items registrados</h4>
+              <h4 class="text-capitalize fw-500 breadcrumb-title">Informacion Sobre estados de cuenta</h4>
             </div>
           </div>
           <div class="action-btn">
@@ -55,6 +58,49 @@
             </a> --}}
           </div>
         </div>
+
+        <div
+          class="support-form datatable-support-form d-flex justify-content-xxl-between justify-content-center align-items-center flex-wrap">
+          <div class="support-form__input">
+            <div class="d-flex flex-wrap">
+              <div class="support-form__input-status">
+                <label>Tipo cliente </label>
+                <div class="dm-select ">
+                  <select name="select-search" class="select-search form-control ">
+                    <option value="02">Todos</option>
+                    <option value="01">Cliente</option>
+                    <option value="02">Licencia</option>
+                  </select>
+                </div>
+              </div>
+              <div class="support-form__input-status">
+                <label>Tipo etiqueta</label>
+                <div class="dm-select ">
+                  <select name="select-search" class="select-search form-control ">
+                    <option value="01">Todos</option>
+                    <option value="02">Tejida</option>
+                    <option value="03">Estampada</option>
+                    <option value="05">Transfer</option>
+                    <option value="04">Impresa</option>
+                    <option value="04">Impreso</option>
+                  </select>
+                </div>
+              </div>
+              <button class="support-form__input-button">Buscar</button>
+            </div>
+          </div>
+          <div class="support-form__search">
+            <div class="support-order-search">
+              <form action="/" class="support-order-search__form">
+                <img src="{{ asset('assets/img/svg/search.svg') }}" alt="search" class="svg">
+                <input class="form-control border-0 box-shadow-none" type="search" placeholder="Buscar"
+                  aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+
+
 
         <div class="container">
 
@@ -87,7 +133,22 @@
                           <td>$100.00</td>
                           <td>$50.00</td>
                           <td>$50.00</td>
-                          <td>Acciones</td>
+                          <td>
+                            <a href="#" class="btn btn-xs btn-success mb-1 ">
+                              <i class="fas fa-money-bill" title="Pagar"></i>
+
+                            </a>
+                            <a href="#" class="btn btn-xs btn-info  mb-1">
+                              <i class="fas fa-file-archive" title="Adjuntar comprobante"></i>
+
+                            </a>
+                            <a href="#" class="btn btn-xs btn-dark  mb-1 ">
+                              <i class="fas fa-download" title="Descargar comprobante"></i>
+
+                            </a>
+
+
+                          </td>
                         </tr>
                         <tr>
                           <td>TE23-23452</td>
