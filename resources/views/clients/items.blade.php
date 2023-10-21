@@ -105,6 +105,8 @@
                 <tr>
                   <th scope="col">id</th>
                   <th scope="col">Imagen</th>
+                  <th scope="col">Ancho</th>
+                  <th scope="col">Largo</th>
                   <th scope="col">Tipo Cliente</th>
                   <th scope="col">Tipo Etiqueta</th>
                   <th scope="col">Nombre de la etiqueta</th>
@@ -122,6 +124,8 @@
                     </a>
                   </td>
                   <td>Cliente</td>
+                  <td>45</td>
+                  <td>54</td>
                   <td>Tejida</td>
                   <td>Clave 1</td>
                   <td>
@@ -152,6 +156,8 @@
                     </a>
                   </td>
                   <td>Cliente</td>
+                  <td>98</td>
+                  <td>12</td>
                   <td>Impresa</td>
                   <td>Clave 2</td>
                   <td>
@@ -182,6 +188,8 @@
                     </a>
                   </td>
                   <td>Cliente</td>
+                  <td>58</td>
+                  <td>99</td>
                   <td>Estampada</td>
                   <td>clave 3</td>
                   <td>

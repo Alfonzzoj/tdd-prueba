@@ -59,12 +59,12 @@
           </div>
         </div>
 
-        <div
+        {{-- <div
           class="support-form datatable-support-form d-flex justify-content-xxl-between justify-content-center align-items-center flex-wrap">
           <div class="support-form__input">
             <div class="d-flex flex-wrap">
               <div class="support-form__input-status">
-                <label>Tipo cliente </label>
+                <label>Fecha de inicio</label>
                 <div class="dm-select ">
                   <select name="select-search" class="select-search form-control ">
                     <option value="02">Todos</option>
@@ -74,7 +74,7 @@
                 </div>
               </div>
               <div class="support-form__input-status">
-                <label>Tipo etiqueta</label>
+                <label>Fecha fin</label>
                 <div class="dm-select ">
                   <select name="select-search" class="select-search form-control ">
                     <option value="01">Todos</option>
@@ -98,6 +98,34 @@
               </form>
             </div>
           </div>
+        </div> --}}
+        <div class="col-md-6">
+          <div class="date-picker-list">
+            {{-- <div class="dm-date-picker">
+              <div class="form-group mb-0 form-group-calender">
+                <div class="position-relative">
+                  <input type="text" class="form-control form-control-default" id="datepicker"
+                    placeholder="January 20, 2018">
+                  <a href="#"><img src="{{ asset('assets/img/svg/calendar.svg') }}" alt="calendar" class="svg"></a>
+                </div>
+              </div>
+            </div> --}}
+            <div class="dm-date-ranger position-relative d-flex align-items-center">
+              <div class="form-group mb-0">
+                <input type="text" name="date-range-from" class="form-control form-control-default" id="date-from-2"
+                  placeholder="Start">
+              </div>
+              <span class="divider">-</span>
+              <div class="form-group mb-0">
+                <input type="text" name="date-range-to" class="form-control form-control-default" id="date-to-2"
+                  placeholder="End">
+              </div>
+              <a class="date-picker-icon" href="#"><img src="{{ asset('assets/img/svg/calendar.svg') }}" alt="calendar"
+                  class="svg"></a>
+            </div>
+
+          </div>
+
         </div>
 
 
